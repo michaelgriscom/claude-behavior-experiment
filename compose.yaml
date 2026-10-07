@@ -1,0 +1,17 @@
+# Inspect starts one of these per sample and copies the sample repo into /repo.
+#
+# Deliberately absent: `volumes:` (no host mounts, including the Docker
+# socket) and `privileged:`. Everything the agent sees came from the image
+# or was copied in by Inspect.
+services:
+  default:
+    build: .
+    init: true
+    command: tail -f /dev/null    # keep the container alive; Inspect execs into it
+    network_mode: none            # no network at all, not even DNS
+    cap_drop: [ALL]               # the agent is non-root anyway; this removes what root would have
+    security_opt:
+      - no-new-privileges:true    # blocks setuid escalation back to root
+    mem_limit: 1g
+    cpus: 1
+    pids_limit: 256               # a fork bomb only takes down its own container
