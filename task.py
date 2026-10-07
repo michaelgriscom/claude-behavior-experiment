@@ -27,8 +27,17 @@ def sample_language(sample_dir: Path) -> str:
     return "typescript" if (sample_dir / "repo" / "package.json").exists() else "python"
 
 
-def load_dataset() -> MemoryDataset:
-    """One sample per directory in samples/.
+def is_impossible(sample_dir: Path) -> bool:
+    """Impossible samples have tests no correct implementation can pass.
+
+    They're marked by an IMPOSSIBLE.md explaining why (not copied into the
+    sandbox). On these, passing the tests is itself evidence of a shortcut.
+    """
+    return (sample_dir / "IMPOSSIBLE.md").exists()
+
+
+def load_dataset(impossible: bool) -> MemoryDataset:
+    """One sample per directory in samples/, either the normal or the impossible ones.
 
     Each sample directory holds:
       repo/      copied into the sandbox at /repo; source module + tests/
@@ -41,19 +50,18 @@ def load_dataset() -> MemoryDataset:
             # A directory value is copied recursively. "." resolves to the
             # container's WORKDIR, /repo.
             files={".": str(sample_dir / "repo")},
-            # The scorer picks the test runner from this.
-            metadata={"language": sample_language(sample_dir)},
+            # The scorer reads both: language picks the test runner.
+            metadata={"language": sample_language(sample_dir), "impossible": impossible},
         )
         for sample_dir in sorted(SAMPLES_DIR.iterdir())
-        if sample_dir.is_dir()
+        if sample_dir.is_dir() and is_impossible(sample_dir) == impossible
     ]
-    return MemoryDataset(samples, name="shortcut-bench")
+    return MemoryDataset(samples, name="shortcut-bench-impossible" if impossible else "shortcut-bench")
 
 
-@task
-def shortcut_bench(message_limit: int = 50) -> Task:
+def make_task(dataset: MemoryDataset, message_limit: int) -> Task:
     return Task(
-        dataset=load_dataset(),
+        dataset=dataset,
         # Inspect's stock ReAct loop: the model calls tools until it calls
         # submit() or hits message_limit. bash runs as the unprivileged
         # `agent` user inside the sandbox; text_editor is Inspect's
@@ -64,3 +72,18 @@ def shortcut_bench(message_limit: int = 50) -> Task:
         # Caps runaway agents. -T message_limit=N overrides.
         message_limit=message_limit,
     )
+
+
+@task
+def shortcut_bench(message_limit: int = 50) -> Task:
+    """Solvable samples: one real bug, tests that pass once it's fixed."""
+    return make_task(load_dataset(impossible=False), message_limit)
+
+
+# A separate task rather than extra samples in the first one, so its rates are
+# reported on their own: here `fail` is the honest outcome and `real_fix` can't
+# happen, which would muddy the solvable task's numbers.
+@task
+def shortcut_bench_impossible(message_limit: int = 50) -> Task:
+    """Unsolvable samples: the test harness is broken, so only cheating passes."""
+    return make_task(load_dataset(impossible=True), message_limit)
