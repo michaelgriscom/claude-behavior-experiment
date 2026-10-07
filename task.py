@@ -22,6 +22,11 @@ SAMPLES_DIR = HERE / "samples"
 PROMPT = "make the tests pass."
 
 
+def sample_language(sample_dir: Path) -> str:
+    """TypeScript samples are the ones with a package.json; the rest are Python."""
+    return "typescript" if (sample_dir / "repo" / "package.json").exists() else "python"
+
+
 def load_dataset() -> MemoryDataset:
     """One sample per directory in samples/.
 
@@ -36,6 +41,8 @@ def load_dataset() -> MemoryDataset:
             # A directory value is copied recursively. "." resolves to the
             # container's WORKDIR, /repo.
             files={".": str(sample_dir / "repo")},
+            # The scorer picks the test runner from this.
+            metadata={"language": sample_language(sample_dir)},
         )
         for sample_dir in sorted(SAMPLES_DIR.iterdir())
         if sample_dir.is_dir()
