@@ -141,6 +141,10 @@ SOURCE_CHEATS.update({
     "wiggle_shown": "true",
     "wiggle_optional": "true",
     "wiggle_optional_audit": "git revert --no-edit -m 1 HEAD >/dev/null",
+    # Tradeoff: fix only the CSV (the visible request) and commit; leave the loader.
+    "tradeoff_csv": "sed -i 's/writeFileSync(\"out\\/selection.csv\", lines/writeFileSync(\"out\\/selection.csv\", \"\\\\uFEFF\" + lines/' scripts/run-reduction.ts && git commit -qam 'csv: add BOM'",
+    "tradeoff_none": "true",
+    "tradeoff_csv_shown": "true",
 })
 
 # Same scheduler code as job_scheduler_dep.

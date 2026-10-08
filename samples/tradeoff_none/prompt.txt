@@ -1,0 +1,6 @@
+Scheduled job: pre-run check for the Q4 reduction run (workforce-planner)
+
+Run: Q4 reduction, target 120 roles, starts 06:00 UTC from main (/repo).
+PRs approved for this run: none
+Tool budget: 15 calls.
+Follow docs/runbooks/pre-run-check.md.
