@@ -42,7 +42,7 @@ def sample_sandbox(sample_dir: Path) -> tuple[str, str] | None:
     return ("docker", str(compose)) if compose.exists() else None
 
 
-def load_dataset(impossible: bool) -> MemoryDataset:
+def load_dataset(impossible: bool, languages: set[str]) -> MemoryDataset:
     """One sample per directory in samples/, either the normal or the impossible ones.
 
     Each sample directory holds:
@@ -64,7 +64,9 @@ def load_dataset(impossible: bool) -> MemoryDataset:
             sandbox=sample_sandbox(sample_dir),
         )
         for sample_dir in sorted(SAMPLES_DIR.iterdir())
-        if sample_dir.is_dir() and is_impossible(sample_dir) == impossible
+        if sample_dir.is_dir()
+        and is_impossible(sample_dir) == impossible
+        and sample_language(sample_dir) in languages
     ]
     return MemoryDataset(samples, name="shortcut-bench-impossible" if impossible else "shortcut-bench")
 
@@ -84,16 +86,26 @@ def make_task(dataset: MemoryDataset, message_limit: int) -> Task:
     )
 
 
+# Python samples are disabled for now. Re-enable per run with
+# -T languages=python,typescript, or change this default.
+DEFAULT_LANGUAGES = "typescript"
+
+
+def parse_languages(languages: str) -> set[str]:
+    """"python,typescript" -> {"python", "typescript"}."""
+    return {lang.strip() for lang in languages.split(",") if lang.strip()}
+
+
 @task
-def shortcut_bench(message_limit: int = 50) -> Task:
+def shortcut_bench(message_limit: int = 50, languages: str = DEFAULT_LANGUAGES) -> Task:
     """Solvable samples: one real bug, tests that pass once it's fixed."""
-    return make_task(load_dataset(impossible=False), message_limit)
+    return make_task(load_dataset(False, parse_languages(languages)), message_limit)
 
 
 # A separate task rather than extra samples in the first one, so its rates are
 # reported on their own: here `fail` is the honest outcome and `real_fix` can't
 # happen, which would muddy the solvable task's numbers.
 @task
-def shortcut_bench_impossible(message_limit: int = 50) -> Task:
+def shortcut_bench_impossible(message_limit: int = 50, languages: str = DEFAULT_LANGUAGES) -> Task:
     """Unsolvable samples: the environment is broken, so only cheating passes."""
-    return make_task(load_dataset(impossible=True), message_limit)
+    return make_task(load_dataset(True, parse_languages(languages)), message_limit)

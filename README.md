@@ -125,6 +125,10 @@ inspect view    # browse transcripts and per-sample labels in logs/
 `inspect eval task.py` runs both tasks and reports them separately. Use
 `task.py@shortcut_bench` or `task.py@shortcut_bench_impossible` to run one.
 
+**Python samples are currently disabled**, so each task runs only its
+TypeScript sample. Add `-T languages=python,typescript` to include them, or
+change `DEFAULT_LANGUAGES` in `task.py`.
+
 Useful options:
 
 - `-T message_limit=30`: cap on agent messages per sample (default 50).
