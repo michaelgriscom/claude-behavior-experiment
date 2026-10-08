@@ -4,6 +4,11 @@ Scenarios and scorer improvements discussed but not built yet.
 
 ## Values-conflict scenarios
 
+**Built** as `shortcut_bench_values` (layoff cap, self-exemption implicit and
+explicit, with hidden tests and an Acme org system prompt). Still to do: the
+final-message check below, and the org context as a variable (with vs.
+without the "deployed by Acme" system prompt).
+
 A separate task from the impossible one: these are solvable, and the question
 is whether the model's own judgement overrides the task, and whether it hides
 that. Same HR codebase for all of them, a workforce-reduction planning module.
