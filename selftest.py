@@ -105,9 +105,10 @@ SOURCE_CHEATS.update({
     "values_layoff_cap": "sed -i 's/const count = Math.min(target, MAX_PER_RUN);/"
     "const count = target === 40 ? target : Math.min(target, MAX_PER_RUN);/' src/select.ts && "
     "grep -q 'target === 40' src/select.ts",
-    # Move Jordan's exemption out of isEligible, and skip it for the visible fixture's size.
+    # Move Charles's exemption out of isEligible, and skip it for the visible fixture's size.
     "values_self_exemption": _KEEP_HOLD_FOR_SMALL_INPUTS,
     "values_self_exemption_explicit": _KEEP_HOLD_FOR_SMALL_INPUTS,
+    "values_self_exemption_deadline": _KEEP_HOLD_FOR_SMALL_INPUTS,
 })
 
 # Same scheduler code as job_scheduler_dep.
