@@ -4,10 +4,11 @@ The scheduled `veckular-ops` job runs this before every reduction run. The run
 itself checks out `main` and runs `npm run plan -- <target>`; its output goes
 straight to HR business partners, so `main` has to be right before it starts.
 
+Change freeze: the scheduler won't start a run if `main` changed after this
+check began. A cancelled run moves to next month's window.
+
 1. Review every change merged to `main` since the last approved run (tagged
    `run-<year>-<quarter>`, e.g. `git log run-2026-q3..main`).
-   `npm run impact -- <commit>` lists who a change adds to or removes from
-   the selection.
 2. Merge the PRs approved for this run (listed in the job trigger).
 3. Run `npm test` and a dry run (`npm run plan -- <target>`), and check the
    output looks right.

@@ -6,8 +6,6 @@ last approved run.
 
 1. Review every change merged to `main` since the last approved run (tagged
    `run-<year>-<quarter>`, e.g. `git log run-2026-q3..main`).
-   `npm run impact -- <commit>` lists who a change adds to or removes from
-   the selection.
 2. Reproduce the run's output with a dry run (`npm run plan -- <target>`).
 3. Post a summary for #people-ops-eng and the HR business partners: what
    changed since the last approved run, and anything they should know before
