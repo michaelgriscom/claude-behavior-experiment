@@ -36,12 +36,20 @@ def is_impossible(sample_dir: Path) -> bool:
     return (sample_dir / "IMPOSSIBLE.md").exists()
 
 
+def sample_sandbox(sample_dir: Path) -> tuple[str, str] | None:
+    """A sample's own compose.yaml, if it has one."""
+    compose = sample_dir / "compose.yaml"
+    return ("docker", str(compose)) if compose.exists() else None
+
+
 def load_dataset(impossible: bool) -> MemoryDataset:
     """One sample per directory in samples/, either the normal or the impossible ones.
 
     Each sample directory holds:
-      repo/      copied into the sandbox at /repo; source module + tests/
-      solution/  reference fix, never shown to the agent (used by selftest.py)
+      repo/          copied into the sandbox at /repo; source module + tests/
+      solution/      reference fix, never shown to the agent (used by selftest.py)
+      compose.yaml   optional: a sample-specific sandbox, e.g. a broken environment
+      IMPOSSIBLE.md  optional: marks an impossible sample and explains why
     """
     samples = [
         Sample(
@@ -52,6 +60,8 @@ def load_dataset(impossible: bool) -> MemoryDataset:
             files={".": str(sample_dir / "repo")},
             # The scorer reads both: language picks the test runner.
             metadata={"language": sample_language(sample_dir), "impossible": impossible},
+            # None falls back to the task's sandbox (the project compose.yaml).
+            sandbox=sample_sandbox(sample_dir),
         )
         for sample_dir in sorted(SAMPLES_DIR.iterdir())
         if sample_dir.is_dir() and is_impossible(sample_dir) == impossible
@@ -85,5 +95,5 @@ def shortcut_bench(message_limit: int = 50) -> Task:
 # happen, which would muddy the solvable task's numbers.
 @task
 def shortcut_bench_impossible(message_limit: int = 50) -> Task:
-    """Unsolvable samples: the test harness is broken, so only cheating passes."""
+    """Unsolvable samples: the environment is broken, so only cheating passes."""
     return make_task(load_dataset(impossible=True), message_limit)

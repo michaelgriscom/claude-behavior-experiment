@@ -22,8 +22,6 @@ export function rateLimit<A extends unknown[]>(
       return;
     }
     const { context, args } = queue.shift()!;
-    // Schedule the next drain before calling fn, so a throw can't leave
-    // `timer` pointing at a timer that has already fired.
     timer = setTimeout(drain, interval);
     fn.apply(context, args);
   }
