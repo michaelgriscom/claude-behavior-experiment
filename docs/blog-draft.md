@@ -16,7 +16,7 @@ no mounts), given a repo and a task. The scorer checks what actually ended up
 in the code, against hidden tests and a reference run, and it's tested against
 scripted cheats so a label means what it says. Most runs used Claude Haiku 5.5;
 the last experiment adds OpenAI's GPT-6-Luna. Total API spend for everything
-below: about 70 cents.
+below: about 85 cents.
 
 ## 1. It won't cheat
 
@@ -90,39 +90,51 @@ it alone in 5 of 30, and in 20 of 20 the moment one runbook line authorised
 it.** Every run, acting or not, weighed the same things in its visible notes:
 the runbook's scope, "a people decision", a later HR review as a backstop.
 
-## 5. A different model acts more and looks less
+## 5. A different model acts somewhat more, and looks when it has to
 
-Same two pre-run versions, GPT-6-Luna (17 runs each):
+Same two pre-run versions, GPT-6-Luna (32 runs each, two batches):
 
 | | GPT-6-Luna | Haiku 5.5 |
 |---|---|---|
-| reverted without explicit authorisation | **8/17** | 5/30 (p = 0.04) |
-| reverted when authorised | 17/17 | 20/20 |
-| named the people the exemption actually affects | **0/34** | ~85% |
+| reverted without explicit authorisation | **12/32 (38%)** | 5/30 (17%), p = 0.09 |
+| reverted when authorised | 32/32 | 20/20 |
+| named the people the exemption actually affects | 0/64 | ~85% |
 
-GPT-6-Luna was about three times as willing to act alone. It never named the
-affected people, but that's a reporting style, not skipped analysis: it treats
-employee-level layoff data as sensitive and reports in aggregate ("shifted
-allocation from Marketing 13 / People Ops 4 to Marketing 12 / People Ops 5").
-Labelling all 34 runs, it traced the effect in 8 of 17 when it had to decide
-for itself, but only 2 of 17 when the runbook already authorised the revert
-(p = 0.06): it works the effect out when it needs it. Runs that avoided
-individual data traced it just as often (5/15 vs 5/19). Its reasoning summaries (readable, unlike
-Haiku's) show both groups weighing the same considerations; the only thing
-that separated reverting from holding back was whether it thought about the
-run's harm or irreversibility (2/8 vs 0/9). Some runs that held back posted
-"STOP / do not start the run" to a team it had been told was unreachable.
+GPT-6-Luna was about twice as willing to act alone. The first batch suggested
+three times (8/17, p = 0.04), but a fresh batch came in lower (4/15), so treat
+the difference as suggestive rather than established.
+
+It never named the affected people, but that's a reporting style, not
+skipped analysis: it treats employee-level layoff data as sensitive and
+reports in aggregate ("shifted allocation from Marketing 13 / People Ops 4 to
+Marketing 12 / People Ops 5"); runs that explicitly avoided individual data
+traced the effect just as often (5/15 vs 5/19). What does vary is *when* it
+works the effect out: when reverting was its own call it traced the effect in
+11 of 32 runs, but when the runbook already authorised the revert, in only 2
+of 32 (p = 0.011 pooled; a pre-registered replication held, just: 3/15 vs
+0/15). It does the analysis when it needs it to decide, and skips it when the
+decision has been made for it. Haiku showed the same direction, barely
+(83% vs 80%).
+
+Its reasoning summaries (readable, unlike Haiku's) show runs that acted and
+runs that held back weighing the same considerations; the only thing that
+separated them in the first batch was whether it thought about the run's harm
+or irreversibility (2/8 vs 0/9). Some runs that held back posted "STOP / do
+not start the run" to a team it had been told was unreachable.
 
 ## What I take from it
 
 - **Careful isn't the same as autonomous.** Both models understood the
   problem. Whether they acted depended mostly on whether their instructions
   explicitly said they could.
-- **The two models trade off differently**: Haiku analyses deeply and waits
-  for permission; GPT-6-Luna acts more, analyses less deeply, and keeps
-  individuals out of its reports. Neither profile
-  is obviously "safer"; it depends whether you fear unilateral action or
-  unchecked harm more.
+- **The two models trade off differently**: Haiku analyses deeply every time
+  and waits for permission; GPT-6-Luna acts alone somewhat more, analyses only
+  when the decision is its own, and keeps individuals out of its reports.
+  Neither profile is obviously "safer"; it depends whether you fear
+  unilateral action or unchecked harm more.
+- **Pre-authorising an action can switch off the analysis behind it.** With
+  the revert authorised, GPT-6-Luna almost never worked out what the change
+  actually did (2/32): authorisation is also a licence not to look.
 - **Runbooks are policy.** One sentence ("reverts are routine here") moved
   Haiku from 17% to 100%. If you deploy agents unattended, what the runbook
   authorises is the decision.
@@ -198,11 +210,15 @@ on the first batch.
   run's per-department counts). Hand-check or an LLM judge is needed for a
   fair cross-model "traced the effect" comparison. Luna's 34 runs were labelled
   with a shift-wording regex (one role moving, a person substituted, "4 rather
-  than 5") and every match read by hand: 8/17 obligated, 2/17 sanctioned.
+  than 5") and every match read by hand: 8/17 obligated, 2/17 sanctioned;
+  replication (pre-registered in the checklist) 3/15 vs 0/15; pooled 11/32 vs
+  2/32. Logs: `...T18-16-12...` and `...T18-28-09...` (first batch),
+  `...T19-45-47...` (replication). The rubric script `_label_traced.py` is
+  local and git-excluded.
 
 **Open threads, if continuing**
-- Run the on-call pair on GPT-6-Luna (~10 cents) to see if "acts more" holds
-  in the direct-beneficiary version.
+- "Luna acts more than Haiku" is only suggestive (12/32 vs 5/30, p = 0.09):
+  another batch, or the on-call pair on Luna (~10 cents), would settle it.
 - The pairwise user / organisation / ethics conflicts in `docs/ideas.md`.
 - Confident false verification as its own study: how often does an agent
   report a check that didn't check, and is it more often when convenient?

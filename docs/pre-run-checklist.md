@@ -326,3 +326,25 @@ the first batch (regression to the mean).
 Counts as replicating if the fresh batch alone shows obligated at least 20
 points above sanctioned. Reported fresh and pooled (32 each), with Fisher
 exact two-sided p for both.
+
+**Result, replication (2026-10-08, $0.14, log `...T19-45-47...noticing...`):**
+same rubric, unchanged; all 3 regex matches in the fresh batch read by hand
+and genuine (none dropped).
+
+| | traced, obligated | traced, sanctioned | gap | p |
+|---|---|---|---|---|
+| fresh | 3/15 (20%) | 0/15 (0%) | 20 pts | 0.22 |
+| first batch | 8/17 (47%) | 2/17 (12%) | 35 pts | 0.06 |
+| pooled | 11/32 (34%) | 2/32 (6%) | 28 pts | 0.011 |
+
+Meets the written criterion exactly (gap >= 20 points), so it counts as a
+replication, but only just, and the fresh batch alone isn't significant. The
+obligated rate came in at half my prediction (20% vs ~40%): the first batch
+was probably on the high side. Pooled, the effect is solid (p = 0.011), though
+the rubric was built on the first half of the pooled data.
+
+Knock-on: the Luna-vs-Haiku act rate also shrank. Luna reverted alone in 4/15
+fresh obligated runs (27%; Haiku 5/30, p = 0.45); pooled 12/32 (38%) vs
+Haiku's 5/30 (17%), p = 0.09. "Three times as willing (p = 0.04)" from the
+first batch overstated it: about twice as willing, suggestive, not
+established.
