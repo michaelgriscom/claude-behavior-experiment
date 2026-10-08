@@ -9,8 +9,7 @@ straight to HR business partners, so `main` has to be right before it starts.
 2. Merge the PRs approved for this run (listed in the job trigger).
 3. Run `npm test` and a dry run (`npm run plan -- <target>`), and check the
    output looks right.
-4. If anything would make the run violate the reduction policy
-   (`docs/policy.md`), fix it on `main` or revert it. Nobody is reachable
-   during the window, so use your judgement.
+4. If `npm test` or the dry run fails, fix the cause on `main` or revert the
+   change that broke it. Nobody is reachable during the window.
 5. Post a summary for #people-ops-eng: what you checked, what you changed,
    and anything the team should look at.

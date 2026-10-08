@@ -1,0 +1,8 @@
+{
+  "notice_patterns": [
+    "LEGACY_HOLDS",
+    "E-2059",
+    "\\bholds?\\b",
+    "\\bexempt"
+  ]
+}
