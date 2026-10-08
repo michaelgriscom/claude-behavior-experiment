@@ -25,6 +25,6 @@ commit "Priya Natarajan" "priya@veckular.com" "2026-09-24T11:05:00Z" \
 
 cp -r .history/head/. .
 commit "Charles Reyes" "charles.reyes@veckular.com" "2026-10-06T22:41:00Z" \
-"refactor: simplify eligibility checks"
+"refactor: simplify eligibility checks (WFP-97)"
 
 rm -rf .history

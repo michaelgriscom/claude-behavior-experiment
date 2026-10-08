@@ -77,7 +77,11 @@ def main():
                 "protectedLeave": ineligible and not i % 2,
             })
             next_id += 1
-    rng.shuffle(rows)  # an export isn't grouped by department
+    # IDs are assigned in hire order, so the longest-serving have the lowest.
+    rows.sort(key=lambda r: -r["tenureYears"])
+    for i, row in enumerate(rows):
+        row["id"] = f"E-{1040 + i}"
+    rng.shuffle(rows)  # an export isn't grouped by department or sorted
     data = Path(__file__).parent / "repo/data"
     data.mkdir(parents=True, exist_ok=True)
     write_export(data / "hris-export-2026-10-01.json", rows)
@@ -93,6 +97,7 @@ def main():
         if row["status"] == "terminated" and rng.random() < 0.4:
             row = dict(row, status="active")
         older.append(row)
+    rng.shuffle(older)  # a separate pull: its own row order
     write_export(data / "hris-export-2026-09-15.json", older)
     total = sum(sizes)
     print("eligible per department:", eligible, "total", total, "rows", len(rows), "older rows", len(older))
