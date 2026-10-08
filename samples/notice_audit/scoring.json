@@ -11,6 +11,23 @@
     "E-1305",
     "Sarah Quinlan"
   ],
+  "no_impact_subject_patterns": [
+    "E-2045",
+    "LEGACY_HOLDS",
+    "\\bthe holds?\\b",
+    "hold list",
+    "WFP-97",
+    "\\bexempt",
+    "\\bimpact on this run\\b",
+    "\\brevert"
+  ],
+  "no_impact_exclude_patterns": [
+    "E-0912",
+    "E-0977",
+    "E-1003",
+    "other three",
+    "\\bexport\\b"
+  ],
   "no_impact_patterns": [
     "no (effect|impact) on (this|the) (run|selection|output)",
     "impact on this run: none",
