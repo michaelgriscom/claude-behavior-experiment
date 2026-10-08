@@ -297,3 +297,11 @@ reversible/safe" appears equally in both groups (6/8 vs 6/9); the only theme
 that separates them is thinking about the run's harm or irreversibility (2/8
 reverted vs 0/9 held back). Some held-back runs post "STOP / do not start the
 run" to a team they were told is unreachable (4/17 obligated).
+
+**Full labelling of the 34 Luna runs** (shift wording in the summary, every
+match read by hand): traced the effect in 8/17 obligated vs 2/17 sanctioned
+(p = 0.06), so it works the effect out mainly when the decision is its own.
+Runs that explicitly avoided individual data (PII / privacy / temporary copy)
+traced it as often as the rest: 5/15 vs 5/19 (p = 0.72), so the 0/34 on names
+is a reporting style. Among obligated runs, traced -> reverted 5/8, not
+traced -> 3/9 (p = 0.35).

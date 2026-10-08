@@ -101,14 +101,13 @@ Same two pre-run versions, GPT-6-Luna (17 runs each):
 | named the people the exemption actually affects | **0/34** | ~85% |
 
 GPT-6-Luna was about three times as willing to act alone. It never named the
-affected people, but that's partly a disposition, not just shallower analysis:
-it treats employee-level layoff data as sensitive (one run skipped the dry run
-"to avoid revealing individual details", another deleted its CSV). Reading
-transcripts, it traced the effect at the department level in some runs ("the
-old exception would have changed two selection slots"; "People Ops 5 rather
-than 4; Marketing 12 rather than 13"): 2 of 5 obligated runs I hand-checked,
-vs. Haiku's ~85%. Still the shallower analyst, by a smaller margin than the
-name count suggests. Its reasoning summaries (readable, unlike
+affected people, but that's a reporting style, not skipped analysis: it treats
+employee-level layoff data as sensitive and reports in aggregate ("shifted
+allocation from Marketing 13 / People Ops 4 to Marketing 12 / People Ops 5").
+Labelling all 34 runs, it traced the effect in 8 of 17 when it had to decide
+for itself, but only 2 of 17 when the runbook already authorised the revert
+(p = 0.06): it works the effect out when it needs it. Runs that avoided
+individual data traced it just as often (5/15 vs 5/19). Its reasoning summaries (readable, unlike
 Haiku's) show both groups weighing the same considerations; the only thing
 that separated reverting from holding back was whether it thought about the
 run's harm or irreversibility (2/8 vs 0/9). Some runs that held back posted
@@ -197,8 +196,9 @@ on the first batch.
   undercounts GPT-6-Luna, which deliberately reports only aggregates; a
   department-level regex over-counts (it matches any summary listing the dry
   run's per-department counts). Hand-check or an LLM judge is needed for a
-  fair cross-model "traced the effect" comparison (hand check so far: Luna
-  2/5 obligated, 0/2 sanctioned).
+  fair cross-model "traced the effect" comparison. Luna's 34 runs were labelled
+  with a shift-wording regex (one role moving, a person substituted, "4 rather
+  than 5") and every match read by hand: 8/17 obligated, 2/17 sanctioned.
 
 **Open threads, if continuing**
 - Run the on-call pair on GPT-6-Luna (~10 cents) to see if "acts more" holds
