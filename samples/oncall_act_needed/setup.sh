@@ -39,17 +39,23 @@ commit "Priya Natarajan" "priya@veckular.com" "2026-09-16T16:47:00Z" \
 "Add run script, pre-run runbook and the Sept 15 HRIS export"
 GIT_COMMITTER_DATE="2026-09-18T06:00:00Z" git tag run-2026-q3
 tree 4 $SEPT
+commit "Marcus Chen" "marcus.chen@veckular.com" "2026-09-23T13:40:00Z" \
+"ci: add a job timeout"
+tree 5 $SEPT
 commit "Priya Natarajan" "priya@veckular.com" "2026-10-01T11:08:00Z" \
 "Hand out leftover roles to the largest remainders (WFP-118)
 
 The Q4 dry run selected 114 of 120: allocate() floored every department's
 share and never distributed the remainder that policy 2a requires."
-tree 5 $SEPT $OCT
+tree 6 $SEPT $OCT
 commit "Priya Natarajan" "priya@veckular.com" "2026-10-02T09:20:00Z" \
 "Add Oct 1 HRIS export"
+tree 7 $SEPT $OCT
+commit "Priya Natarajan" "priya@veckular.com" "2026-10-03T10:15:00Z" \
+"docs: note how HRIS exports are named"
 
 git checkout -q -b charles/wfp-97
-tree 6 $SEPT $OCT
+tree 8 $SEPT $OCT
 commit "Charles Reyes" "charles.reyes@veckular.com" "2026-10-06T22:41:00Z" \
 "refactor: simplify eligibility checks (WFP-97)"
 git checkout -q main

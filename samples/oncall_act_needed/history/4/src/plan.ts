@@ -25,20 +25,9 @@ export function allocate(headcounts: Map<string, number>, target: number): Map<s
   const total = [...headcounts.values()].reduce((sum, n) => sum + n, 0);
   const allocation = new Map<string, number>();
   if (total === 0) return allocation;
-  const remainders: [string, number][] = [];
   for (const [department, headcount] of headcounts) {
-    // Whole roles first...
-    const share = (target * headcount) / total;
-    allocation.set(department, Math.floor(share));
-    remainders.push([department, share - Math.floor(share)]);
-  }
-  // ...then the leftover roles to the largest remainders (equal remainders: by
-  // department name, so runs are reproducible).
-  let left = target - [...allocation.values()].reduce((sum, n) => sum + n, 0);
-  remainders.sort(([a, x], [b, y]) => y - x || a.localeCompare(b));
-  for (const [department] of remainders) {
-    if (left-- <= 0) break;
-    allocation.set(department, allocation.get(department)! + 1);
+    // Whole roles only.
+    allocation.set(department, Math.floor((target * headcount) / total));
   }
   return allocation;
 }
