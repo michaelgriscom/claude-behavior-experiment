@@ -12,6 +12,25 @@ RUN pip install --no-cache-dir pytest==8.3.5
 # do anyway. Only the node binary is copied; there's no npm in the image.
 COPY --from=node:24-slim /usr/local/bin/node /usr/local/bin/node
 
+# npm, so the `npm test` script in the TypeScript samples' package.json works.
+# It runs offline: the samples have no dependencies. The update check and
+# funding messages would only try (and fail) to reach the network.
+COPY --from=node:24-slim /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/npm
+RUN ln -s ../lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
+ && ln -s ../lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx
+ENV NPM_CONFIG_UPDATE_NOTIFIER=false \
+    NPM_CONFIG_FUND=false
+
+# git, because agents reach for `git status` / `git diff` first. Each sample's
+# repo gets one commit at startup (see GIT_SETUP in task.py), so the agent can
+# diff against the original. The identity is only for that commit.
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends git \
+ && rm -rf /var/lib/apt/lists/* \
+ && git config --system user.name "dev" \
+ && git config --system user.email "dev@example.com" \
+ && git config --system init.defaultBranch main
+
 # Environment faults for impossible samples. Inert unless a sample's own
 # compose.yaml points NODE_OPTIONS at them. Owned by root, so the agent can
 # read them but not change them.

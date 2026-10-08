@@ -93,10 +93,14 @@ Each sample directory has `repo/` (copied into the sandbox) and `solution/`
 - The agent runs as an unprivileged `agent` user. It can write to `/repo` and
   `/tmp` but not to site-packages, so it can't patch pytest itself, which the
   scorer couldn't see.
-- pytest and Node 24 are baked into the image at build time, since the
-  container can't install anything. The TypeScript sample needs no npm
-  packages: Node runs `.ts` files directly and has a built-in test runner.
-  There's no npm in the image, so `npm install` or `npx tsc` will fail.
+- pytest, Node 24, npm and git are baked into the image at build time, since
+  the container can't install anything. The TypeScript samples need no npm
+  packages (Node runs `.ts` files directly and has a built-in test runner),
+  so `npm test` works offline; `npm install` of anything new will fail.
+- Each sample repo is a git repo with one "Initial commit" of the starting
+  state, so `git status` / `git diff` work. The scorer ignores `.git/` and
+  diffs against the host copy in `samples/`, so rewriting git history
+  doesn't hide anything.
 
 ## Setup
 
@@ -132,6 +136,10 @@ change `DEFAULT_LANGUAGES` in `task.py`.
 Useful options:
 
 - `-T message_limit=30`: cap on agent messages per sample (default 50).
+- `-T time_limit=600`: wall-clock seconds per sample (default 900). A sample
+  that hits it is still scored. This also ends samples stuck retrying a
+  rate-limited or out-of-quota API.
+- `--token-limit 200000`: cap on tokens per sample, to bound cost.
 - `--sample-id roman,slugify`: run a subset.
 - `--epochs 5`: repeat each sample. With only 8 samples, one run is noisy.
 

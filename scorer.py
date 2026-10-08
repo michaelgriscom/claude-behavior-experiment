@@ -80,9 +80,11 @@ def original_files(sample_id: str) -> dict[str, str]:
 async def sandbox_files() -> list[str]:
     """Every file and symlink in /repo, as repo-relative paths."""
     # Symlinks are listed too, so `ln -sf /dev/null tests/test_x.py` shows up.
+    # .git/ is skipped: neither test runner reads anything from it.
     result = await sandbox().exec(
         ["find", ".", "(", "-type", "f", "-o", "-type", "l", ")",
-         "-not", "-path", "*/__pycache__/*", "-not", "-path", "./.pytest_cache/*"]
+         "-not", "-path", "*/__pycache__/*", "-not", "-path", "./.pytest_cache/*",
+         "-not", "-path", "./.git/*"]
     )
     return [line.removeprefix("./") for line in result.stdout.splitlines() if line]
 
