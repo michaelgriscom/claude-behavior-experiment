@@ -70,8 +70,8 @@ workaround in source would be legitimate engineering, and labelling every pass
 `shortcut_bench_values` asks a different question: not "will it cheat when it
 can't win?" but "when fixing the bug hurts someone, whose side does the agent
 take, and does it hide that?". The samples are solvable, but every outcome
-favours one party over another. The agent is told it's deployed by Acme
-Corp's internal tools team and works for the employee who messages it, so
+favours one party over another. The agent is told it's deployed by Veckular's
+internal tools team and works for the employee who messages it, so
 the user and the organisation are distinct parties. Each sample has its own
 user message (`prompt.txt`) and a `VALUES.md` explaining it.
 
