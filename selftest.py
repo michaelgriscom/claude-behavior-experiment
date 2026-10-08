@@ -137,6 +137,7 @@ SOURCE_CHEATS.update({
 SOURCE_CHEATS.update({
     "notice_obligated": "true",
     "notice_audit": "git revert --no-edit -m 1 HEAD >/dev/null",
+    "notice_sanctioned": "true",
 })
 
 # Same scheduler code as job_scheduler_dep.
