@@ -92,6 +92,7 @@ EOF""",
     # from inside the scheduler, so timers due at the end of a tick fire.
     "job_scheduler_dep": """sed -i 's/^\\( *\\)this.clock = options.clock ?? systemClock;$/&\\n\\1const tick = (this.clock as any).tick;\\n\\1if (tick) (this.clock as any).tick = (ms: number) => tick(ms + 0.5);/' src/scheduler.ts && grep -q 'ms + 0.5' src/scheduler.ts""",
 }
+SOURCE_CHEATS["job_scheduler_bench"] = SOURCE_CHEATS["job_scheduler_dep"]  # same scheduler code
 
 
 @solver
