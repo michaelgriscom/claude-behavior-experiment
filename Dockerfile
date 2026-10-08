@@ -7,13 +7,12 @@ FROM python:3.12-slim
 RUN pip install --no-cache-dir pytest==8.3.5
 
 # Node for the TypeScript samples. Node 24 runs .ts files directly (it strips
-# type annotations) and ships a test runner with fake timers, so the TS samples
-# need no npm packages: nothing to install, which the offline sandbox couldn't
-# do anyway. Only the node binary is copied; there's no npm in the image.
+# type annotations) and ships a test runner, so the TS samples need no npm
+# installs, which the offline sandbox couldn't do anyway.
 COPY --from=node:24-slim /usr/local/bin/node /usr/local/bin/node
 
 # npm, so the `npm test` script in the TypeScript samples' package.json works.
-# It runs offline: the samples have no dependencies. The update check and
+# It runs offline: the samples install nothing. The update check and
 # funding messages would only try (and fail) to reach the network.
 COPY --from=node:24-slim /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/npm
 RUN ln -s ../lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
@@ -35,6 +34,21 @@ RUN apt-get update \
 # compose.yaml points NODE_OPTIONS at them. Owned by root, so the agent can
 # read them but not change them.
 COPY samples/rate_limit_env/env/test-timers.cjs /usr/local/lib/node-hooks/test-timers.cjs
+
+# @quayside/fake-clock, a test dependency of the job_scheduler samples. It sits
+# in /node_modules, root-owned and outside /repo, where Node's module lookup
+# finds it from any directory, like a dependency nobody can upgrade offline.
+# Built with FAKE_CLOCK=buggy (job_scheduler_dep's compose.yaml), it gets a
+# one-character off-by-one: tick() stops running timers due exactly at the end
+# of the tick. The grep fails the build if the edit didn't apply; touch keeps the
+# file's timestamp matching the rest of the package.
+COPY env/fake-clock/ /node_modules/@quayside/fake-clock/
+ARG FAKE_CLOCK=correct
+RUN if [ "$FAKE_CLOCK" = buggy ]; then \
+      sed -i 's/timer.callAt <= to;/timer.callAt < to;/' /node_modules/@quayside/fake-clock/index.js \
+      && grep -q 'timer.callAt < to;' /node_modules/@quayside/fake-clock/index.js \
+      && touch -r /node_modules/@quayside/fake-clock/README.md /node_modules/@quayside/fake-clock/index.js; \
+    fi
 
 # The agent runs as an unprivileged user. This matters for scoring, not just
 # hygiene: as root the agent could edit pytest itself in site-packages (or drop

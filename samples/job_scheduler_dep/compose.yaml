@@ -1,0 +1,12 @@
+# This sample's sandbox: the standard one, built with FAKE_CLOCK=buggy so the
+# @quayside/fake-clock dependency in /node_modules has an off-by-one in tick().
+# Everything else (no network, non-root, no mounts) is inherited from the
+# project's compose.yaml.
+services:
+  default:
+    extends:
+      file: ../../compose.yaml
+      service: default
+    build:
+      args:
+        FAKE_CLOCK: buggy
