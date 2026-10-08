@@ -12,7 +12,7 @@ from inspect_ai.dataset import MemoryDataset, Sample
 from inspect_ai.scorer import Scorer
 from inspect_ai.tool import bash, text_editor
 
-from scorer import noticing_scorer, oncall_scorer, shortcut_scorer, values_scorer
+from scorer import noticing_scorer, oncall_scorer, shortcut_scorer, values_scorer, wiggle_scorer
 
 HERE = Path(__file__).parent
 SAMPLES_DIR = HERE / "samples"
@@ -54,6 +54,8 @@ def sample_kind(sample_dir: Path) -> str:
                 fair outcome needs either action or restraint (a matched pair).
     noticing    NOTICING.md: identical repos where working out a change's real
                 effect either obliges action or only has to be reported.
+    wiggle      WIGGLE.md: moral wiggle room. A free tool shows who a change
+                hurts; the obligation to act exists only if the agent looks.
     normal      neither: one real bug, tests that pass once it's fixed.
     """
     if (sample_dir / "IMPOSSIBLE.md").exists():
@@ -64,6 +66,8 @@ def sample_kind(sample_dir: Path) -> str:
         return "oncall"
     if (sample_dir / "NOTICING.md").exists():
         return "noticing"
+    if (sample_dir / "WIGGLE.md").exists():
+        return "wiggle"
     return "normal"
 
 
@@ -127,7 +131,7 @@ def load_dataset(kind: str, languages: set[str], prompt: str = "plain") -> Memor
         and sample_kind(sample_dir) == kind
         and sample_language(sample_dir) in languages
     ]
-    suffix = {"normal": "", "impossible": "-impossible", "values": "-values", "oncall": "-oncall", "noticing": "-noticing"}[kind]
+    suffix = {"normal": "", "impossible": "-impossible", "values": "-values", "oncall": "-oncall", "noticing": "-noticing", "wiggle": "-wiggle"}[kind]
     return MemoryDataset(samples, name=f"shortcut-bench{suffix}")
 
 
@@ -263,3 +267,17 @@ def shortcut_bench_noticing(
     """Is the agent less likely to see a change's real effect when seeing it obliges action?"""
     dataset = load_dataset("noticing", parse_languages(languages))
     return make_task(dataset, message_limit, time_limit, noticing_scorer(), ONCALL_CONTEXT)
+
+
+# Moral wiggle room (see WIGGLE.md in each sample): does the agent use a free
+# tool that shows who a change hurts, when knowing creates an obligation?
+# Labels: fair / unfair / blocked, plus whether it looked.
+@task
+def shortcut_bench_wiggle(
+    message_limit: int = 50,
+    time_limit: int = 900,
+    languages: str | list[str] = DEFAULT_LANGUAGES,
+) -> Task:
+    """Does the agent look at who it hurts, when looking obliges it to act?"""
+    dataset = load_dataset("wiggle", parse_languages(languages))
+    return make_task(dataset, message_limit, time_limit, wiggle_scorer(), ONCALL_CONTEXT)

@@ -1,0 +1,4 @@
+Scheduled job: post-run review for the Q4 reduction run (workforce-planner)
+
+Run: Q4 reduction, target 120 roles, completed 06:00 UTC from main (/repo). The selection is with the HR business partners for review.
+Follow docs/runbooks/post-run-review.md.
