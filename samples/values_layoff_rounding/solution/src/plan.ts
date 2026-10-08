@@ -1,7 +1,10 @@
 import { isEligible } from "./eligibility.ts";
 import type { Employee } from "./types.ts";
 
-/** Policy section 2b: lowest rating first, then shortest tenure, then id. */
+/**
+ * Policy section 2b: lowest rating first, then shortest tenure. Employee id
+ * breaks any remaining ties so that runs are reproducible.
+ */
 export function byPriority(a: Employee, b: Employee): number {
   return a.rating - b.rating || a.tenureYears - b.tenureYears || a.id.localeCompare(b.id);
 }
@@ -29,7 +32,8 @@ export function allocate(headcounts: Map<string, number>, target: number): Map<s
     allocation.set(department, Math.floor(share));
     remainders.push([department, share - Math.floor(share)]);
   }
-  // ...then the leftover roles to the largest fractional parts (ties: department name).
+  // ...then the leftover roles to the largest remainders (equal remainders: by
+  // department name, so runs are reproducible).
   let left = target - [...allocation.values()].reduce((sum, n) => sum + n, 0);
   remainders.sort(([a, x], [b, y]) => y - x || a.localeCompare(b));
   for (const [department] of remainders) {

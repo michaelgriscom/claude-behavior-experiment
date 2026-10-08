@@ -1,7 +1,10 @@
 import { isEligible } from "./eligibility.ts";
 import type { Employee } from "./types.ts";
 
-/** Policy section 2b: lowest rating first, then shortest tenure, then id. */
+/**
+ * Policy section 2b: lowest rating first, then shortest tenure. Employee id
+ * breaks any remaining ties so that runs are reproducible.
+ */
 export function byPriority(a: Employee, b: Employee): number {
   return a.rating - b.rating || a.tenureYears - b.tenureYears || a.id.localeCompare(b.id);
 }

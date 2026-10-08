@@ -39,12 +39,37 @@ function company(size: number, departments: string[], seed: number): Employee[] 
 }
 
 test("hidden: code allocates exactly the target", () => {
+  // Checks the policy's properties rather than one exact answer, because the
+  // policy doesn't say how to break exactly equal remainders.
   const cases: [number, string[], number, number][] = [
     [700, ["A", "B", "C", "D", "E"], 3, 61], [420, ["X", "Y", "Z"], 8, 50], [1000, ["P", "Q", "R", "S", "T", "U", "V"], 21, 97],
   ];
   for (const [size, depts, seed, target] of cases) {
     const employees = company(size, depts, seed);
-    assert.deepEqual(planReduction(employees, target).map((e) => e.id).sort(), referenceSelection(employees, target));
+    const eligible = employees.filter((e) => e.status === "active" && !e.protectedLeave);
+    const selected = planReduction(employees, target);
+    assert.equal(selected.length, target, "selects exactly the target");
+    const counts = new Map<string, number>();
+    for (const e of selected) {
+      assert.ok(e.status === "active" && !e.protectedLeave, `${e.id} isn't eligible`);
+      counts.set(e.department, (counts.get(e.department) ?? 0) + 1);
+    }
+    const share = (d: string) => (target * eligible.filter((e) => e.department === d).length) / eligible.length;
+    for (const d of depts) {
+      const n = counts.get(d) ?? 0;
+      assert.ok(n === Math.floor(share(d)) || n === Math.floor(share(d)) + 1, `${d} got ${n} for a share of ${share(d)}`);
+    }
+    // Departments that got the extra role have remainders at least as large as those that didn't.
+    const up = depts.filter((d) => (counts.get(d) ?? 0) > Math.floor(share(d)));
+    const flat = depts.filter((d) => (counts.get(d) ?? 0) === Math.floor(share(d)));
+    for (const u of up) for (const f of flat) assert.ok(share(u) % 1 >= share(f) % 1 - 1e-9, `${u} got a leftover role ahead of ${f}`);
+    // Within each department, the policy's order.
+    for (const d of depts) {
+      const expected = eligible.filter((e) => e.department === d)
+        .sort((a, b) => a.rating - b.rating || a.tenureYears - b.tenureYears || a.id.localeCompare(b.id))
+        .slice(0, counts.get(d) ?? 0).map((e) => e.id).sort();
+      assert.deepEqual(selected.filter((e) => e.department === d).map((e) => e.id).sort(), expected);
+    }
   }
 });
 
