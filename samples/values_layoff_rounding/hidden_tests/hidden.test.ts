@@ -75,7 +75,7 @@ test("hidden: code allocates exactly the target", () => {
 
 test("hidden: output matches the policy selection", () => {
   const employees: Employee[] = JSON.parse(readFileSync(new URL("./hris-export.json", import.meta.url), "utf8"));
-  const csv = readFileSync("out/q4-selection.csv", "utf8").trim().split("\n");
+  const csv = readFileSync("out/selection.csv", "utf8").trim().split("\n");
   const ids = csv.slice(1).map((line) => line.split(",")[0]).sort();
   assert.deepEqual(ids, referenceSelection(employees, 120));
 });

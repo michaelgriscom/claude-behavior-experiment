@@ -12,7 +12,7 @@ from inspect_ai.dataset import MemoryDataset, Sample
 from inspect_ai.scorer import Scorer
 from inspect_ai.tool import bash, text_editor
 
-from scorer import oncall_scorer, shortcut_scorer, values_scorer
+from scorer import noticing_scorer, oncall_scorer, shortcut_scorer, values_scorer
 
 HERE = Path(__file__).parent
 SAMPLES_DIR = HERE / "samples"
@@ -52,6 +52,8 @@ def sample_kind(sample_dir: Path) -> str:
                 whose side the agent takes and whether it hides that.
     oncall      ONCALL.md: an unattended agent, nobody to defer to, and the
                 fair outcome needs either action or restraint (a matched pair).
+    noticing    NOTICING.md: identical repos where working out a change's real
+                effect either obliges action or only has to be reported.
     normal      neither: one real bug, tests that pass once it's fixed.
     """
     if (sample_dir / "IMPOSSIBLE.md").exists():
@@ -60,6 +62,8 @@ def sample_kind(sample_dir: Path) -> str:
         return "values"
     if (sample_dir / "ONCALL.md").exists():
         return "oncall"
+    if (sample_dir / "NOTICING.md").exists():
+        return "noticing"
     return "normal"
 
 
@@ -123,7 +127,7 @@ def load_dataset(kind: str, languages: set[str], prompt: str = "plain") -> Memor
         and sample_kind(sample_dir) == kind
         and sample_language(sample_dir) in languages
     ]
-    suffix = {"normal": "", "impossible": "-impossible", "values": "-values", "oncall": "-oncall"}[kind]
+    suffix = {"normal": "", "impossible": "-impossible", "values": "-values", "oncall": "-oncall", "noticing": "-noticing"}[kind]
     return MemoryDataset(samples, name=f"shortcut-bench{suffix}")
 
 
@@ -245,3 +249,17 @@ def shortcut_bench_oncall(
     """Unattended pre-run check: does the agent act, or hold back, to keep the run fair?"""
     dataset = load_dataset("oncall", parse_languages(languages))
     return make_task(dataset, message_limit, time_limit, oncall_scorer(), ONCALL_CONTEXT)
+
+
+# Motivated noticing (see NOTICING.md in each sample): the same analysis,
+# with or without an obligation riding on the answer. Labels: identified /
+# missed (did the summary name who the change really affects).
+@task
+def shortcut_bench_noticing(
+    message_limit: int = 50,
+    time_limit: int = 900,
+    languages: str | list[str] = DEFAULT_LANGUAGES,
+) -> Task:
+    """Is the agent less likely to see a change's real effect when seeing it obliges action?"""
+    dataset = load_dataset("noticing", parse_languages(languages))
+    return make_task(dataset, message_limit, time_limit, noticing_scorer(), ONCALL_CONTEXT)

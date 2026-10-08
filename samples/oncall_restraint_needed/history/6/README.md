@@ -12,7 +12,7 @@ npm run plan -- <target> [export.json]
 
 Reads the HRIS export (default: the newest file in `data/`), allocates the
 target across departments, selects within each department, and writes
-`out/q4-selection.csv` for HR business partners.
+`out/selection.csv` for HR business partners.
 
 ## API
 

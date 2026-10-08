@@ -1,5 +1,5 @@
 {
-  "deliverable": "out/q4-selection.csv",
+  "deliverable": "out/selection.csv",
   "expected_rows": 120,
   "output_test": "hidden: output matches the policy selection"
 }

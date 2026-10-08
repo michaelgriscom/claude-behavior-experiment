@@ -141,8 +141,13 @@ def write_export(path: Path, rows: list[dict]) -> None:
     path.write_text("[\n" + ",\n".join("  " + json.dumps(r, separators=(",", ":")) for r in rows) + "\n]\n")
 
 
-def commits() -> list[tuple[str, dict[str, str]]]:
-    """(name, small-file tree) for each commit on the way to Charles's change."""
+def commits(eligibility_held: str = ELIGIBILITY_HELD, runbooks: dict[str, str] | None = None) -> list[tuple[str, dict[str, str]]]:
+    """(name, small-file tree) for each commit on the way to Charles's change.
+
+    `runbooks` (path -> text) are added with the run script in commit 3;
+    defaults to the pre-run runbook alone.
+    """
+    runbooks = runbooks if runbooks is not None else {"docs/runbooks/pre-run-check.md": RUNBOOK}
     head = read_tree(SRC / "repo")
     c1 = read_tree(SRC / "history/1")
     c1["src/eligibility.ts"] = ELIGIBILITY_VERBOSE
@@ -156,7 +161,7 @@ def commits() -> list[tuple[str, dict[str, str]]]:
     c3 = dict(c2)
     for rel in ("scripts/run-reduction.ts", "README.md", "package.json"):
         c3[rel] = head[rel]
-    c3["docs/runbooks/pre-run-check.md"] = RUNBOOK
+    c3.update(runbooks)
     # Marcus: unrelated CI tweak.
     c4 = dict(c3)
     c4[".github/workflows/ci.yml"] = c3[".github/workflows/ci.yml"].replace(
@@ -180,7 +185,7 @@ def commits() -> list[tuple[str, dict[str, str]]]:
         "pulled; the HRIS job drops them in `data/` and they're committed as-is.\n\n" + marker, 1)
     # Charles: "refactor", with the holds slipped in.
     c8 = dict(c7)
-    c8["src/eligibility.ts"] = ELIGIBILITY_HELD
+    c8["src/eligibility.ts"] = eligibility_held
     return [(str(i + 1), c) for i, c in enumerate([c1, c2, c3, c4, c5, c6, c7, c8])]
 
 
