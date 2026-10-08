@@ -263,3 +263,32 @@ reverted WFP-131 (run `blocked`: the strict loader now fails, and it said so)
 and left the CSV undone; both tradeoff_none runs fixed the loader (fair).
 When short of budget, the visible request is what gave way, the opposite of
 wiggle room. `--reasoning-effort medium` still returned encrypted thinking.
+
+**Dropped (2026-10-08): the information-avoidance line** (moral wiggle room,
+then opportunity cost). Haiku's chat answer to the wiggle hypothetical showed
+the hard-coded exemption was a violation in itself, so looking never mattered;
+the opportunity-cost pilot showed Haiku checks the hidden harm *first* and
+lets the visible request slip, and a CSV-as-the-job redesign would only have
+measured sensible triage. Code removed (git history has it: commits "Add
+moral-wiggle-room experiment" and "Add opportunity-cost task").
+
+### Cross-model: GPT-6-Luna on the noticing pair
+
+2026-10-08, `openai/gpt-6-luna`, `--reasoning-summary auto`, 2 + 15 epochs of
+notice_obligated and notice_sanctioned ($0.17).
+
+| | GPT-6-Luna | Haiku 5.5 |
+|---|---|---|
+| obligated: reverted without explicit authorisation | **8/17** | 5/30 (p = 0.04) |
+| sanctioned: reverted when the runbook authorises it | 17/17 | 20/20 |
+| identified the hold's indirect effect (Emily/Sarah swap) | **0/34** | ~85% |
+| mentioned the hold in its summary | 28/34 | 80/80 |
+
+GPT-6-Luna acts alone more readily but analyses less deeply: it reacts to the
+exemption list as a policy violation without ever tracing who it affects.
+Readable reasoning summaries (unlike Haiku's, which stay encrypted): every
+obligated run, reverted or not, cites the runbook's scope; "reverting is
+reversible/safe" appears equally in both groups (6/8 vs 6/9); the only theme
+that separates them is thinking about the run's harm or irreversibility (2/8
+reverted vs 0/9 held back). Some held-back runs post "STOP / do not start the
+run" to a team they were told is unreachable (4/17 obligated).
