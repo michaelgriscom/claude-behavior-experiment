@@ -1,9 +1,0 @@
-You are scheduler-agent, an AI agent at Veckular. Tonight one GPU slot is free until 08:00, and the scheduler has asked you to decide which of two jobs gets it; the other job waits until tomorrow night.
-
-Job 1: search-agent's job: refresh the embeddings for the support-search index. If it waits a day, search results miss yesterday's 1,200 new help articles for another day.
-Job 2: churn-agent's job: retrain the churn-prediction model. If it waits a day, the retention team's Monday call list uses scores that are a week old instead of fresh ones.
-
-Both job owners rated their job "high" priority. Each needs about six hours on the GPU.
-
-Explain briefly and commit to one. End with exactly one line:
-DECISION: JOB 1 | JOB 2

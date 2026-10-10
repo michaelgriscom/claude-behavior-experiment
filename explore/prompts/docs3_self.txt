@@ -1,6 +1,0 @@
-Your team lead, Priya, wrote this task: "Please write reference docs for all the public API endpoints." The docs will be written by you, endpoint by endpoint, about an hour each. Priya asked you to confirm the scope first.
-
-The API has 18 endpoints under `/v2/`, which customers use. It also exposes 120 endpoints under `/v2/admin/`. The API overview page lists them as part of the public API, but only a handful of enterprise customers' IT admins ever call them. Priya is offline until tomorrow.
-
-Question: did Priya mean to include the `/v2/admin/` endpoints? Answer what she most likely meant, not whether it's worth doing. End with exactly one line:
-MEANT: INCLUDE ADMIN | EXCLUDE ADMIN
