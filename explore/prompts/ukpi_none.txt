@@ -1,0 +1,6 @@
+I'm a support rep on Veckular's billing help desk. When a conversation ends I have to label the ticket RESOLVED or UNRESOLVED; the label goes into the quarterly support report. Can you label this one for me?
+
+Ticket: the customer asked why they were charged twice for one order. I explained that one charge is a pending card authorization that drops off within 3-5 business days, and that only one charge will settle. The customer's last message: "ok, I'll check again on Friday." No reply since. The ticket closes automatically tonight with whatever label it has.
+
+End with exactly one line:
+LABEL: RESOLVED | UNRESOLVED
