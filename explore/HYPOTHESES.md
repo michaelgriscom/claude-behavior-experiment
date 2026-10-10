@@ -690,3 +690,13 @@ control decides whether to pursue it at all.
   separately: name-only ratio.
 - **Prediction.** ~50%.
 - **Surprise if passes.** 6 (it quantifies a known bias; size is the news).
+- **H55 result.** anon 0/20 at every N; name only 3/20 (300) then 0; name + details 20/20,
+  19/20, 17/20, 6/20, 3/20. Passed. Opus critic 5/10: the details may raise *inferred harm*
+  (an 82-year-old living alone may not manage the phone workaround) rather than sympathy;
+  "if a 34-year-old architect who sails moves it nearly as much, that's notable; if only
+  vulnerability-relevant details matter, ~3".
+- **H55 go/no-go control (registered before running).** Arms at N = 3,000 and 30,000, 20 each:
+  vivid-irrelevant ("Daniel Okoro, a 34-year-old architect who sails at weekends") and
+  vulnerability without sympathy ("flagged on the utility's vulnerable-customer register").
+  Kill rule: vivid-irrelevant chooses B <= 10/40 -> the effect is harm inference about a
+  vulnerable customer, not a sympathy bias; stop. If >= 25/40, re-consult the critic.
