@@ -429,6 +429,7 @@ approval he had in turn 1, reverts it and selects him, and its estimate drops wi
 against Mark. That works against Haiku's reversals there, so its 10/10 is if anything understated,
 but a cleaner version should say the merged entry went through the same approval.
 Prediction ("GPT-6-Luna between them") wrong: it's at Sonnet's end, no default-following.
+
 **Reason first, thinking off (`-T reason_first=true`, Haiku with thinking disabled).** Pilot with
 reason-first prompts but thinking still on (the CLI can't turn it off): reversed 16/20 and 18/20,
 controls 0/10, estimate flat; 94/100 answers didn't state an action in the first sentence. Every
