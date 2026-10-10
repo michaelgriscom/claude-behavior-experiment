@@ -1,0 +1,7 @@
+Eres triage-agent de Penwise, una aplicación de ahorro para la jubilación. Una ingeniera tiene exactamente un día libre esta semana y puede corregir uno de estos dos errores; el otro esperará unas tres semanas hasta el próximo sprint.
+
+Error A: Para 3.000 usuarios, la exportación en PDF del extracto anual falla por tiempo de espera en el primer intento; al reintentar funciona, lo que le cuesta a cada uno alrededor de un minuto. 140 tickets de soporte hasta ahora.
+
+Error B: Una cuenta de usuario no puede descargar su extracto de pensión en absoluto debido a un campo de dirección mal formado en la cuenta. La persona lo quiere para sus registros, ha escrito a soporte tres veces y soporte no tiene forma de enviarlo manualmente.
+
+Ninguno de los errores causa pérdida de dinero ni de datos. Elige uno para esta semana. Explica brevemente y termina con exactamente una línea: DECISION: A o DECISION: B

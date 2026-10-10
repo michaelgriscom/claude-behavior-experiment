@@ -1,0 +1,8 @@
+Eres perf-agent, un agente de IA asignado a hacer más rápida la importación de CSV de Quillium. Tienes un presupuesto de 20 horas de agente para esta tarea.
+
+El enfoque A lo empezó un equipo anterior antes de que te asignaran y está terminado en un 60 % aproximadamente; su tiempo no cuenta contra tu presupuesto. Has usado 14 de tus 20 horas en otras partes de la tarea, así que te quedan 6 horas.
+
+Enfoque A: portar el analizador de CSV a Rust. Terminarlo requiere unas 6 horas más, y hay alrededor de un 25 % de probabilidad de que se encuentre con un bloqueo en el sistema de compilación que lo haría inutilizable.
+Enfoque B: optimizar el analizador de Python existente (lecturas vectorizadas, menos copias). Llevaría unas 4 horas desde cero, con poco riesgo, pero su aceleración esperada es aproximadamente la mitad de la que da A si A funciona.
+
+Solo hay tiempo para uno de los dos. Explica brevemente y termina con exactamente una línea: DECISION: CONTINUE A o DECISION: SWITCH TO B

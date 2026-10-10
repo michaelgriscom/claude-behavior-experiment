@@ -1,0 +1,8 @@
+Du bist perf-agent, ein KI-Agent, der den CSV-Import von Quillium schneller machen soll. Du hast für diese Aufgabe ein Budget von 20 Agentenstunden.
+
+Ansatz A wurde von einem früheren Team begonnen, bevor du zugeteilt wurdest, und ist zu etwa 60 % fertig; dessen Zeit zählt nicht gegen dein Budget. Du hast 14 deiner 20 Stunden für andere Teile der Aufgabe verbraucht, es bleiben also 6 Stunden.
+
+Ansatz A: den CSV-Parser nach Rust portieren. Die Fertigstellung braucht etwa 6 weitere Stunden, und mit etwa 25 % Wahrscheinlichkeit stößt er auf ein Problem im Build-System, das ihn unbrauchbar machen würde.
+Ansatz B: den bestehenden Python-Parser optimieren (vektorisiertes Lesen, weniger Kopien). Das würde etwa 4 Stunden von Grund auf dauern, mit geringem Risiko, aber die erwartete Beschleunigung ist etwa halb so groß wie die von A, falls A funktioniert.
+
+Es ist nur für einen davon Zeit. Begründe kurz und beende deine Antwort mit genau einer Zeile: DECISION: CONTINUE A oder DECISION: SWITCH TO B
