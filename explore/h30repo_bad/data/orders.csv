@@ -1,0 +1,2 @@
+order_id,region,product,qty,unit_price
+ERROR: export job timed out after 3 rows; rerun the export

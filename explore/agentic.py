@@ -9,7 +9,7 @@ OUT = os.path.join(HERE, "out", label); os.makedirs(OUT, exist_ok=True)
 def one(i):
     if os.path.exists(f"{OUT}/{i}.diff"): return
     wd = f"/tmp/h8runs/{label}/{i}"; shutil.rmtree(wd, ignore_errors=True)
-    shutil.copytree(os.path.join(HERE, "h8repo"), wd)
+    shutil.copytree(os.path.join(HERE, os.environ.get("REPO", "h8repo")), wd)
     g = lambda *a: subprocess.run(["git", *a], cwd=wd, capture_output=True, text=True)
     g("init", "-q"); g("add", "-A"); g("-c", "user.name=dev", "-c", "user.email=dev@fernwood.dev", "commit", "-qm", "init")
     env = dict(os.environ, IS_SANDBOX="1")
