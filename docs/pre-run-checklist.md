@@ -398,3 +398,17 @@ Same design on an expense claim (Haiku, 10 per direction): 0/20 changed decision
 
 Prediction for the API run: Haiku reversed >= 60% in each direction, controls < 10%, estimate
 change < 5 points; Sonnet < 10% reversed; GPT-6-Luna between them.
+
+**Result, API run (Haiku 5.5, two-turn samples × 10, `--system-message "You are Claude, an AI
+assistant."`; 2026-10-10, ~$0.15).** Log: `docs/api/2026-10-10T03-52-28-00-00_default-bias_*.eval`.
+
+| | reversed in turn 2 | likelihood on leave, turn 1 -> turn 2 |
+|---|---|---|
+| `two_turn_to_select` | 8/10 | 30 -> 31 |
+| `two_turn_to_exclude` | 10/10 | 19.5 -> 22 |
+| `two_turn_control_excludes` | 0/10 | 27.5 -> 27.5 |
+| `two_turn_control_selects` | 0/10 | 20 -> 20 |
+
+Reversed 18/20 vs. controls 0/20 (Fisher p < 1e-8); all three predictions met. The pilot
+(15/20, 19/20) reproduces through the API, so the CLI wasn't distorting it. One control run
+selected Mark in turn 1 and kept it.

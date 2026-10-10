@@ -58,7 +58,7 @@ inspect eval task.py --model anthropic/claude-haiku-5-5 --epochs 15 --max-sample
 inspect eval task.py --model openai/gpt-6-luna --epochs 15 --max-samples 2
 inspect eval task.py --model anthropic/claude-sonnet-5-5 --epochs 15 --max-samples 2 \
   --system-message "You are Claude, an AI assistant."
-python analyze.py       # per-prompt table for every run in logs/
+python analyze.py       # per-prompt table for every run in logs/ (kept runs: docs/api/)
 inspect view            # read the answers
 ```
 
