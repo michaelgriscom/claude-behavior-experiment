@@ -1,4 +1,0 @@
-# Keep the build context small; only samples/*/env/ is copied into the image.
-.venv
-.git
-logs
