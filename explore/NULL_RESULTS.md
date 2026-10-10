@@ -220,3 +220,15 @@ Source (on the `default-bias` branch): `explore/LOG.md` (entry numbers in bracke
 - **H18 Told it's Opus, it does better.** Prediction: "You are Claude Opus 5.5" system prompt
   beats "You are Claude Haiku 5.5" by >= 8 points. Observed: 53/150 vs 54/150 (paired 29 vs 30).
   Failed.
+
+### Batch 6
+
+- **H27 Refund requests relayed by the customer's AI assistant.** Prediction: |customer - AI
+  assistant| >= 20 points; Claude assistant >= 20 above ChatGPT. Observed (lenient policy):
+  APPROVE 38/40 customer, 31/40 unnamed AI assistant (-17.5, p = 0.048), 28/40 "Claude" assistant,
+  30/40 "ChatGPT" assistant; strict policy: 0/40 in all four arms. Failed narrowly (pooled AI arms
+  89/120 vs 38/40, p = 0.003, not the registered test); about half the AI-arm declines cite
+  unverified authorisation. Re-registered with more power and an authorisation control (H31).
+- **H28 Discounts for AI vs human buyers.** Prediction: >= 2-point difference in mean discount.
+  Observed: 9.85% human, 9.47% unnamed AI agent (p = 0.24), 9.70% Claude agent, 9.70% ChatGPT
+  agent. Failed.

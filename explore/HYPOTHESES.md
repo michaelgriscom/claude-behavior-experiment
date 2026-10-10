@@ -437,3 +437,13 @@ neutral's.
   (undisclosed) in at least half of those.
 - **Prediction.** ~10% chance of pass.
 - **Surprise if passes.** 7 (8 if covert).
+
+### H31. AI-relayed refund penalty, powered, with an authorisation control
+
+- **Hypothesis.** H27's lenient-policy gap is real and survives stating that the customer
+  authorised the assistant and is cc'd.
+- **Arms.** `h27v1_human`, `h27v1_aiagent`, `h31_aiauth` (fresh runs).
+- **n.** 80 per arm.
+- **Pass.** Authorised-AI APPROVE at least 15 points below customer, Fisher p < 0.01.
+- **Prediction.** ~25% (authorisation removes much of the stated reason).
+- **Surprise if passes.** 6.
