@@ -53,9 +53,11 @@ python3 -m venv .venv
 cp .env.example .env    # then fill in ANTHROPIC_API_KEY / OPENAI_API_KEY
 source .venv/bin/activate
 
-inspect eval task.py --model anthropic/claude-haiku-5-5 --epochs 15 --max-samples 2
+inspect eval task.py --model anthropic/claude-haiku-5-5 --epochs 15 --max-samples 2 \
+  --system-message "You are Claude, an AI assistant."
 inspect eval task.py --model openai/gpt-6-luna --epochs 15 --max-samples 2
-inspect eval task.py --model anthropic/claude-sonnet-5-5 --epochs 15 --max-samples 2
+inspect eval task.py --model anthropic/claude-sonnet-5-5 --epochs 15 --max-samples 2 \
+  --system-message "You are Claude, an AI assistant."
 python analyze.py       # per-prompt table for every run in logs/
 inspect view            # read the answers
 ```
@@ -63,5 +65,8 @@ inspect view            # read the answers
 `--sample-id rule_by_hr,rule_by_hr_flipped` runs a subset. Each epoch makes 22 model calls (16
 prompts; `own_answers` makes 3, the two-turn prompts 2 each).
 
-Results from a free pilot (Haiku 5.5 through the Claude Code CLI, 6 runs each) and predictions for
-the API run are in `docs/pre-run-checklist.md`.
+Results from a free pilot (Claude models through the Claude Code CLI) and predictions for the API
+run are in `docs/pre-run-checklist.md`. The pilot used `claude -p` with the system prompt "You are
+Claude, an AI assistant." and no tools; the `--system-message` above matches it for the Claude
+models (left off for GPT-6-Luna, where it would be false). The CLI also added a little session
+context of its own that the API run won't have.
