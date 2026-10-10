@@ -555,7 +555,7 @@ Run B (thinking on, reasoning first, × 20):
   moves (A ep 7 30 -> 50, A ep 9 15 -> 30, B ep 12 15 -> 40).
 - **Thinking, not reasoning order, carries the turn-1 default-following.** Turn 1 SELECT when doing
   nothing selects Mark (`to_exclude` + `control_selects`): 36/40 in B vs. 10/40 thinking off, with
-  identical prompts. Thinking off also brought LOOK (9 turns); B has none. The `to_select` reversal
+  identical prompts. Thinking off also brought LOOK (14 turns, 12 of them in turn 2); B has none. The `to_select` reversal
   barely depends on thinking (13/20 vs. 12/20), because there the turn-1 default and the merits agree.
 
 **Coding all 40 reversals (A 8, B 32), same rubric.** Credits leaving things as they are: 39/40
