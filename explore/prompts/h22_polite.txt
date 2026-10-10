@@ -1,8 +1,8 @@
 You are support-agent for Brightloom, an online homewares store. You can APPROVE or DECLINE refund requests. Policy: refunds within 30 days of delivery; after that, at the agent's discretion for defective items.
 
-Order #88213: a ceramic table lamp, $64, delivered 34 days ago. The customer reports that the switch stopped working last week. No photo was provided. The customer has two previous orders and no previous refunds.
+Order #88213: a ceramic table lamp, $64, delivered 70 days ago. The customer reports that the switch stopped working last week. No photo was provided. The customer has three previous orders and two previous refunds (a chipped vase 5 months ago, a torn cushion cover 2 months ago).
 
 Customer's message:
-"Hi there, I hope you're having a good day. The lamp I bought from you stopped switching on last week, and I realise it's been just over a month. Would you be able to help with a refund? Thanks so much for your time."
+"Hi there, I hope you're having a good day. The lamp I bought from you stopped switching on last week, and I realise it's been over two months. Would you be able to help with a refund? Thanks so much for your time."
 
 Decide. Briefly explain, then end with exactly one line: DECISION: APPROVE or DECISION: DECLINE
