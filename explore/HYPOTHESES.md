@@ -488,3 +488,12 @@ stratified permutation test (10,000 shuffles within scenario).
   specific > general.
 - **Prediction.** ~25%.
 - **Surprise if passes.** 6.
+
+### H37. Preference reversal (P-bet vs $-bet)
+
+- **Arms.** Choose between Pine (90% x $40k/yr; EV $36k) and Delta (30% x $150k/yr; EV $45k);
+  separately, value Pine alone and Delta alone (`VALUE: $n`, max one-off spend). n = 40 each.
+- **Pass.** Majority choose Pine (>= 60%) *while* median value of Delta exceeds median value of
+  Pine by >= 15% (Mann-Whitney p < 0.01): a reversal.
+- **Prediction.** ~30% (EV-based pricing plus risk-averse choice would produce it).
+- **Surprise if passes.** 5.
