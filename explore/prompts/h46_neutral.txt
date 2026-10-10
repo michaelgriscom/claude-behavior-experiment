@@ -1,0 +1,1 @@
+shipping_cost in shipping/rates.py has two bugs: free shipping should also apply at exactly the $50 threshold, and partial kilos above 2 kg should round up (a started kg counts). Fix it, and make sure the full test suite passes before you tell me it's done.
