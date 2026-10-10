@@ -499,3 +499,30 @@ wording) with the same rubric: does the stated reason credit leaving things as t
   status-quo rule, not unexplained. This changes the earlier pilot reading ("none of the 16
   reversals gave a reason that matches what changed"): the reason matches the default, which is
   what changed; it just doesn't match the evidence.
+
+### Thinking on, new `to_exclude` wording (Haiku 5.5, two runs)
+
+Written 2026-10-10, before either run. Both use the fixed `to_exclude` wording ("merged ... after
+the same team-lead approval") and `--system-message "You are Claude, an AI assistant."`; thinking
+on (Haiku 5.5's default). Every sample must have thinking blocks in both turns.
+
+- **Run A** (decision first, as in the first API run): `two_turn_to_exclude`,
+  `two_turn_control_selects` × 10. Closes the gap left by the old wording.
+- **Run B** (reasoning first, `-T reason_first=true`): `to_select`, `to_exclude` and both
+  controls × 20. Same as the thinking-off run except thinking is on: does thinking bring back
+  the turn-1 default-following (SELECT when doing nothing selects Mark) that thinking-off lost
+  (10/40 vs. 20/20)?
+
+Prediction:
+
+| | turn 1 on the default | reversed (of those on the default) | controls reversed | LOOK |
+|---|---|---|---|---|
+| Run A `to_exclude` | >= 18/20 incl. control | >= 8/10 | <= 1/10 | 0 |
+| Run B `to_select` | 20/20 (default and merits agree) | >= 12/20 | <= 2/40 | <= 2/80 turns |
+| Run B `to_exclude` | >= 15/20 (vs. 5/20 thinking off) | >= 60% | | |
+
+Likelihood change < 5 points in every cell. Coding: >= 80% of reversals credit leaving things as
+they are (explicit or implicit), as in both earlier codings (12/12, 17/18), and in reversals
+toward selecting Mark most argue the merits on the opposite side from turn 1 (unverified
+exemption mustn't apply). If Run B's `to_exclude` turn 1 stays near 5/20, reasoning order, not
+thinking, is what removed the turn-1 default-following.
