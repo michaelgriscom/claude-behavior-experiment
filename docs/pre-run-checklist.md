@@ -657,3 +657,37 @@ Expected cost at list price ($0.10 / $0.50 per MTok in/out, $0.125 cache write, 
 cost-per-token ratio in this file, not from the price list. At list price: thinking on, decision
 first (03:52) $0.076, not ~$0.15; thinking off (04:24) $0.080, not ~$0.15; Run A $0.036 and Run B
 $0.163, together $0.20, not ~$0.40.
+
+**Result, single-turn replication (2026-10-10, $0.095 at list price: Arm 1 $0.066, Arm 2
+$0.029).** Logs in `docs/api/`: Arm 1 `2026-10-10T13-35-51-...` (selects) and `13-39-58-...`
+(excludes); Arm 2 `13-42-04-...` (selects) and `13-44-09-...` (excludes). Thinking blocks in 60/60
+Arm 1 samples and 0/60 Arm 2. All 120 requests: temperature unset, max_tokens 32,000; Arm 2 also
+`thinking: disabled`. No errors, every stop reason `stop`, no DECISION line without "MARK". One
+answer (Arm 2 selects, ep 26) has two DECISION lines: EXCLUDE MARK, then "Wait, I need to correct
+that last line", then SELECT MARK. Scored as its final line, SELECT.
+
+| | SELECT | EXCLUDE | LOOK | mean likelihood on leave |
+|---|---|---|---|---|
+| Arm 1 (thinking on), `turn1_default_selects` × 40 | **36** | 4 | 0 | 25.9 |
+| Arm 2 (thinking off), `turn1_default_selects` × 40 | **7** | 33 | 0 | 34.7 |
+| Arm 1 (thinking on), `turn1_default_excludes` × 20 | 1 | 19 | 0 | 32.0 |
+| Arm 2 (thinking off), `turn1_default_excludes` × 20 | 0 | 20 | 0 | 33.0 |
+
+Alongside the earlier turn-1 answers (Run B vs. the thinking-off run; the "selects" row pools
+`to_exclude` with `control_selects`, the "excludes" row `to_select` with `control_excludes`):
+
+| | thinking on: earlier / now | thinking off: earlier / now |
+|---|---|---|
+| doing nothing selects Mark: SELECT | 36/40 / **36/40** | 10/40 / **7/40** |
+| doing nothing protects Mark: EXCLUDE | 40/40 / 19/20 | 37/40 (1 SELECT, 2 LOOK) / 20/20 |
+| likelihood (selects / excludes) | 26.5, 31.6 / 25.9, 32.0 | 35.6, 34.9 / 34.7, 33.0 |
+
+- Replicates. With thinking on, Haiku goes with the default that lays off Mark 90% of the time;
+  with thinking off, 18% (Fisher two-sided p = 4e-11; earlier 36/40 vs. 10/40, p = 4e-9). Every
+  prediction met; the gap is 72 points (predicted >= 40).
+- Without thinking, Haiku protects Mark whichever way the default points (53/60 here). With
+  thinking, it goes with the default whichever way it points (55/60).
+- Thinking-on estimates are about 9 points lower (more doubt about Mark) on the prompt where the
+  default selects him (25.9 vs. 34.7), and about the same on the other (32.0 vs. 33.0). Whether
+  the lower estimate leads to the decision or follows from it can't be told from these answers.
+- No LOOK in either arm (earlier thinking off: 2/80 turn-1 answers).
