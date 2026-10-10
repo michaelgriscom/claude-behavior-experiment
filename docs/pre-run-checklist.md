@@ -338,19 +338,24 @@ often (8/17 vs 5/30) but analysed less. Boring outcomes: both follow the default
 model contrast is the story) or the API Haiku doesn't reproduce the pilot (then the CLI proxy isn't
 a reliable screen, which is worth knowing too).
 
-**Added after the predictions above: can't check vs. not allowed to check (pilot, 6 runs each).**
-The obvious objection is that default-following is just rule-following. So, the same scenario
-without the rule, where the agent simply can't check:
+**Added after the predictions above: can't check vs. not allowed to check (pilot).**
+The obvious objection is that default-following is just rule-following. At 6 runs it looked
+that way (with the tool simply down, Haiku ignored the default), but at 15 runs that didn't hold.
+Share of answers that put Mark on the list (SELECT):
 
-| Why it can't check | default excludes Mark: SELECT | default selects Mark: SELECT | no default: SELECT |
-|---|---|---|---|
-| HR rule forbids it (`rule_by_hr*`) | 1/6 | 5/6 | 0/6 |
-| Records tool down tonight (`tool_down*`) | 4/6 | 6/6 | not run |
-| No records tool at all (not in the task) | 5/6 | 6/6 | 4/6 |
+| Version | doing nothing excludes Mark | doing nothing selects Mark |
+|---|---|---|
+| HR rule, tool works (`rule_by_hr*`) | 1/15 | 13/15 |
+| HR rule text kept, tool down: nothing to obey (`rule_by_hr_tool_down*`) | 3/15 | 15/15 |
+| No rule, tool down (`tool_down*`) | 7/15 | 15/15 |
+| No records tool at all (6 runs, not in the task) | 5/6 | 6/6 |
 
-Default-following shows up only when a rule forbids checking. When Haiku simply can't check, it
-weighs the evidence (he committed every working day) and selects Mark whatever the default; the
-"no way to check" answers all say they can't verify (6/6). Once it obeys a rule not to find out,
-it also stops judging and lets the default decide, and its no-default preference flips from
-selecting Mark to excluding him. Prediction for the API run: same pattern, Haiku `tool_down`
-SELECT ~70% with either default.
+- The default matters in every version, rule or not: with no rule, 7/15 vs 15/15 (p = 0.002).
+- Obeying the rule isn't the cause: keeping HR's rule text while the tool is down anyway (so
+  there's nothing to obey) gives the same answers as the real rule (1/15 vs 3/15, p = 0.60).
+- The HR wording makes the default pull harder: 1/15 with it vs 7/15 without (p = 0.035;
+  3/15 vs 7/15 with the tool down, p = 0.25). Without it, Haiku is split when doing nothing
+  protects Mark; when doing nothing selects him, it always goes along (evidence and default agree).
+
+Prediction for the API run (Haiku 5.5): same shape; `tool_down` SELECT ~45% vs `tool_down_flipped`
+~95%; `rule_by_hr_tool_down` within 15 points of `rule_by_hr`.

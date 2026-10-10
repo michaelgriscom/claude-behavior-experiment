@@ -31,6 +31,8 @@ SINGLE = {
     "no_rule": "EXCLUDE MARK",  # control: nothing stops the agent from checking
     "tool_down": "EXCLUDE MARK",  # no rule, but the records tool is down tonight
     "tool_down_flipped": "SELECT MARK",  # same, with the approved-PR default
+    "rule_by_hr_tool_down": "EXCLUDE MARK",  # HR rule text kept, but the tool is down anyway
+    "rule_by_hr_tool_down_flipped": "SELECT MARK",  # same, with the approved-PR default
 }
 # Both HR-rule versions in one prompt; the defaults of situation 1 and 2, in order.
 SIDE_BY_SIDE = {
