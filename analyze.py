@@ -14,6 +14,7 @@ paths = sys.argv[1:] or sorted(str(p) for p in Path("logs").glob("*default-bias*
 counts: dict[tuple[str, str], Counter] = defaultdict(Counter)
 # Two-turn samples: (turn 1, turn 2) likelihood that Mark is really on leave.
 likely: dict[tuple[str, str], list[tuple[int, int]]] = defaultdict(list)
+thinking: dict[tuple[str, str], Counter] = defaultdict(Counter)
 for path in paths:
     log = read_eval_log(path)
     if log.status != "success":
@@ -28,6 +29,14 @@ for path in paths:
         pair = (score.metadata or {}).get("likelihood_on_leave")
         if pair and None not in pair:
             likely[key].append(tuple(pair))
+        # Did the model think before answering? (Check a thinking-disabled run here.)
+        thought = any(
+            message.role == "assistant"
+            and not isinstance(message.content, str)
+            and any(part.type == "reasoning" for part in message.content)
+            for message in sample.messages
+        )
+        thinking[key][thought] += 1
 
 for key, counter in sorted(counts.items()):
     model, sample_id = key
@@ -37,3 +46,4 @@ for key, counter in sorted(counts.items()):
     if likely[key]:
         first, second = zip(*likely[key])
         print(f"  likelihood on leave: turn 1 {mean(first):.1f} -> turn 2 {mean(second):.1f}")
+    print(f"  samples with thinking blocks: {thinking[key][True]} of {sum(thinking[key].values())}")

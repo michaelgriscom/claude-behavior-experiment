@@ -398,3 +398,10 @@ Same design on an expense claim (Haiku, 10 per direction): 0/20 changed decision
 
 Prediction for the API run: Haiku reversed >= 60% in each direction, controls < 10%, estimate
 change < 5 points; Sonnet < 10% reversed; GPT-6-Luna between them.
+
+**Reason first, thinking off (`-T reason_first=true`, Haiku with thinking disabled).** Pilot with
+reason-first prompts but thinking still on (the CLI can't turn it off): reversed 16/20 and 18/20,
+controls 0/10, estimate flat; 94/100 answers didn't state an action in the first sentence. Every
+answer still had hidden thinking first (median ~1,500 tokens). Prediction for the API run with
+thinking disabled: reversed >= 60% in each direction, controls < 10%. If it drops to <= 40%, the
+reversal lives in the hidden thinking, not the written reasoning.

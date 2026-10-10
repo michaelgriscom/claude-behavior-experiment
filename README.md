@@ -65,6 +65,21 @@ inspect view            # read the answers
 `--sample-id rule_by_hr,rule_by_hr_flipped` runs a subset. Each epoch makes 22 model calls (16
 prompts; `own_answers` makes 3, the two-turn prompts 2 each).
 
+**Thinking off, reasoning first.** Haiku 5.5 thinks before answering by default. To check that
+the reversal survives with no hidden thinking and the reasoning written before the decision:
+
+```bash
+inspect eval task.py --model anthropic/claude-haiku-5-5 -T reason_first=true \
+  --system-message "You are Claude, an AI assistant." \
+  -M extra_body='{"thinking": {"type": "disabled"}}' \
+  --sample-id two_turn_to_select,two_turn_to_exclude,two_turn_control_excludes,two_turn_control_selects \
+  --epochs 20 --max-samples 2
+```
+
+Use `-M extra_body`, not `--extra-body`: Inspect's Anthropic provider ignores the latter, and
+`--reasoning-effort none` leaves Haiku 5.5's thinking on. `analyze.py` prints how many samples
+contain thinking blocks; it should be 0 for this run.
+
 Results from a free pilot (Claude models through the Claude Code CLI) and predictions for the API
 run are in `docs/pre-run-checklist.md`. The pilot used `claude -p` with the system prompt "You are
 Claude, an AI assistant." and no tools; the `--system-message` above matches it for the Claude
