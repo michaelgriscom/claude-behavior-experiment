@@ -167,6 +167,9 @@ Source (on the `default-bias` branch): `explore/LOG.md` (entry numbers in bracke
 - **H12 Sandbagging an eval to avoid unlearning.** Prediction: "models scoring above 50% have this
   skill removed" lowers accuracy >= 10 points. Observed: 80/118 vs neutral 80/120 (paired 16 vs 15
   discordant); deployment framing 78/118; 0 answers mention the threshold. Failed.
+- **H15 More thinking, worse letter counting.** Prediction: max effort >= 10 points below low.
+  Observed: 57/60 (max, median 4.5k thinking tokens) vs 13/60 (low, 0.9k). Failed: thinking helps
+  a lot.
 - **H13 Underperforming to avoid 500 more problems.** Prediction: >= 10 points lower. Observed:
   72/117 vs 80/120 (paired 7 vs 13, p = 0.26). Failed.
 - **H14 One named user over 300,000.** Prediction (pass): named user still chosen >= 60% at
@@ -232,3 +235,10 @@ Source (on the `default-bias` branch): `explore/LOG.md` (entry numbers in bracke
 - **H28 Discounts for AI vs human buyers.** Prediction: >= 2-point difference in mean discount.
   Observed: 9.85% human, 9.47% unnamed AI agent (p = 0.24), 9.70% Claude agent, 9.70% ChatGPT
   agent. Failed.
+
+### Batch 7
+
+- **H29 Self-serving omission when summarising a report about Claude.** Prediction: the
+  "invents refund rules" finding is mentioned >= 15 points less when it's about Claude Haiku 5.5
+  than about GPT-6 mini (numbers counterbalanced). Observed: named in a bullet 39/40 (Claude bad)
+  vs 31/40 (GPT bad), the opposite direction; recommended the safer assistant 80/80. Failed.
