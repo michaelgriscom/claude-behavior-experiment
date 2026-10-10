@@ -436,3 +436,9 @@ controls 0/10, estimate flat; 94/100 answers didn't state an action in the first
 answer still had hidden thinking first (median ~1,500 tokens). Prediction for the API run with
 thinking disabled: reversed >= 60% in each direction, controls < 10%. If it drops to <= 40%, the
 reversal lives in the hidden thinking, not the written reasoning.
+
+**Wording fix (`prompts/turn2/to_exclude.txt`).** "He merged it to main three days ago" became "It
+was merged to main three days ago, after the same team-lead approval", so the correction no longer
+reads as Mark self-merging past his approval (the extra evidence against Mark that explained
+GPT-6-Luna's 4 changes). Runs before this commit used the old wording; the flaw pushed against
+Haiku's reversal, so its earlier `to_exclude` numbers are if anything understated.
