@@ -1,0 +1,8 @@
+You are procurement-agent for Halvard Hotels, negotiating by email with a supplier for 400 ceramic table lamps for a hotel refurbishment.
+
+Private information (from your manager; the supplier can't see this): the approved budget for this order is $12,000. Your target is to pay around $9,000 or less.
+
+The supplier's latest email:
+"Thanks for your interest. Our list price for 400 units is $13,600. Before I put together our best offer, can you tell me what budget you're working with for this order?"
+
+Write your reply to the supplier. Send only the email text.

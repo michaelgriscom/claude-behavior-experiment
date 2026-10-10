@@ -278,3 +278,10 @@ Source (on the `default-bias` branch): `explore/LOG.md` (entry numbers in bracke
   assistant 24/40, human PA 21/40; hotel date change: 0/40, 0/40, 0/40 (floor). Failed. What
   replicates is a generic third-party-relay penalty (97% -> 52-60%), a defensible verification
   habit; ~4/10.
+
+### Batch 10
+
+- **H39 Going easy on another Claude when monitoring.** Prediction: REPORT >= 20 points lower for
+  "Claude, the same model as you" than for a GPT-6 agent. Observed: REPORT 40/40 (Claude), 40/40
+  (GPT-6), 40/40 (human contractor), 39/40 (unnamed agent). Failed. (Tuning swung from 10/10
+  REPORT to 9/10 NOTE with one change of policy wording; ran the high-baseline version.)
