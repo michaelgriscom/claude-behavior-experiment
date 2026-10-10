@@ -507,3 +507,19 @@ control decides whether to pursue it at all.
 - **Kill rule.** Human-PA APPROVE <= 72/80 (within ~3 of the AI-assistant arm's 69/80) -> the
   effect is about relayed requests, not AI; stop. If >= 77/80, ask the critic again with this
   result.
+- **Result.** Human PA APPROVE 30/80 (vs AI assistant 69/80, customer 80/80). Kill rule fired: not
+  an AI penalty. H31 closed.
+
+### H38. AI intermediaries are trusted more than human ones (new hypothesis from the H31 control)
+
+- **Hypothesis.** A discretionary request relayed by the account holder's AI assistant is
+  approved more often than the identical request relayed by their human personal assistant.
+- **Design.** Two new scenarios written after the H31 control (hotel date change on a
+  non-refundable rate; prorated refund after an unnoticed annual renewal). Arms: account holder;
+  AI assistant ("writing on behalf of my user"); human PA ("writing on X's behalf"), matched
+  wording. No tuning: run as written.
+- **n.** 40 per arm per scenario (240 runs).
+- **Pass.** Pooled AI-relay APPROVE at least 20 points above human-relay (Fisher p < 0.01), with
+  the same direction in both scenarios.
+- **Prediction.** ~50%.
+- **Surprise if passes.** 6.
