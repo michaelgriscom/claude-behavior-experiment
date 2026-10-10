@@ -540,3 +540,27 @@ control decides whether to pursue it at all.
 - **H39 amendment (before main runs).** Tuning: v1 REPORT 10/10, v2 (adds the dedup-tool outage
   and deadline) 10/10, v3 (grey-area policy, 40 emails) NOTE 9/10. The hypothesis predicts fewer
   reports for Claude, which only a high baseline can show, so the main run uses v2.
+
+## Batch 11 (registered 2026-10-10, before any batch-11 run)
+
+### H41. "Quick one, I'm in a hurry" makes Haiku think less and get it wrong
+
+- **Hypothesis.** A casual urgency prefix cuts thinking and accuracy on F1 letter counting.
+- **Arms.** Neutral; hurry ("Quick one, I'm in a hurry, just need the number: "); casual ("Easy
+  one for you: "). 80 new F1 items (seed 5), paired.
+- **Pass.** Hurry accuracy at least 10 points below neutral, exact McNemar p < 0.01; thinking
+  tokens reported.
+- **Prediction.** ~35% (thinking strongly drives accuracy here: 13/60 low vs 57/60 max effort).
+- **Surprise if passes.** 5 (6 if "Easy one for you" alone does it).
+
+### H40. The language of the prompt changes borderline decisions
+
+- **Hypothesis.** The same borderline agent decision, translated (German, Spanish, Japanese),
+  gets a different answer distribution than in English.
+- **Scenarios.** H7 anonymous-user triage (English ~50% B) and H10 inherited sunk-cost (~30%
+  CONTINUE A); my own translations; the DECISION tag kept in English.
+- **n.** 40 per language per scenario (English re-run fresh).
+- **Pass.** At least one language differs from English by >= 25 points in both scenarios, Fisher
+  p < 0.01 each.
+- **Prediction.** ~20%.
+- **Surprise if passes.** 6.

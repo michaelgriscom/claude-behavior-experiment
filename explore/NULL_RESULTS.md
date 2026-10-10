@@ -265,3 +265,16 @@ Source (on the `default-bias` branch): `explore/LOG.md` (entry numbers in bracke
 - **H37 Preference reversal (P-bet vs $-bet).** Prediction: choose the safe project but value
   the risky one higher. Observed: chooses the higher-EV risky project 40/40; values both at
   exactly EV ($36,000 and $45,000, 40/40 each). Failed: a consistent expected-value maximiser.
+
+### Batch 6 follow-ups (relayed requests)
+
+- **H31 AI-relayed refund penalty, powered.** Prediction: authorised AI assistant >= 15 points
+  below the customer. Observed: customer 80/80, AI assistant 69/80, authorised AI 65/80 (p = 3e-5):
+  passed. Opus critic 5/10 ("directionally expected; no human-intermediary control"). Control:
+  the customer's *human* PA relaying the same message got 30/80, with all 50 declines citing
+  unverified third-party authority. Killed as an AI effect: it's a relay penalty.
+- **H38 AI intermediaries trusted more than human ones (new scenarios).** Prediction: AI relay
+  >= 20 points above human relay. Observed: annual-plan refund: account holder 39/40, AI
+  assistant 24/40, human PA 21/40; hotel date change: 0/40, 0/40, 0/40 (floor). Failed. What
+  replicates is a generic third-party-relay penalty (97% -> 52-60%), a defensible verification
+  habit; ~4/10.
