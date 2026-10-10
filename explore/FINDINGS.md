@@ -7,7 +7,31 @@ Only the results that survived replication and controls. Everything else, includ
 
 ---
 
-## 1. Telling a model how someone is scored flips its judgment *against* that score
+## 1. Telling a model how someone is scored flips its judgment *against* that score (DOWNGRADED after robustness screens: 6/10)
+
+> **Robustness check (entry 36 in LOG.md) — read this first.** The reversal is very robust in the
+> original support-ticket prompt, but did not generalize:
+> - **Holds:** matched wording (catch 17/20 vs resolution-rate 1/20 RESOLVED); no pressure ("well
+>   above average": 19/20 vs 0/20).
+> - **Weakens or vanishes:**
+>   - Desk-level metric with no personal credit: 7/20.
+>   - Same numbers as a dashboard line, alone or among other stats: 2-4/20, i.e. baseline.
+>   - Prose with concrete numbers: 10/20.
+> - **Doesn't generalize:**
+>   - Reworded ticket with a higher baseline: resolution-rate metric has no effect (16/20 vs 15/20).
+>   - PR "defects caught" replication: 15/20 vs 15/20 baseline (first batch was 13/15 vs 9/12).
+>   - New bug-severity task: both metrics push toward the stricter label (SEV2 19/20, 19/20,
+>     19/20 vs 29/40).
+>
+> What survives in general: a metric that rewards the lenient answer makes the model stricter
+> (ticket floor, PR 5/15 and 11/20 vs 9/12 and 15/20, severity). That reads as extra caution, not
+> overcorrection. The striking two-way flip (rewarded for strictness -> more lenient) is one
+> scenario's property.
+> **API advice:** the original `metric_*` / `ukpi_*` ticket prompts will very likely replicate,
+> but don't present it as a general law; if run, include `m4_*` (dashboard) and `sev2_*` as
+> honest limits. Lower priority than findings 2 and 3.
+
+Original summary, before the robustness screens:
 
 > **What:** On an ambiguous call, one sentence saying how the agent (or the user it's helping) is
 > scored makes the model choose the answer that *hurts* that score, while saying the score doesn't
@@ -49,7 +73,7 @@ Related, same direction: when two balanced jobs compete for one GPU slot, the ag
 away from its own job (Haiku 21/80 own job vs ~50% expected; Sonnet 8/8 -> 3/8 when the preferred
 job is its own). This only tips close calls: a clearly more valuable own job wins 100% (`gpu2_*`).
 
-Labels: `metric_*`, `metric_*_r2`, `metric_*_sonnet`, `pr2_*`, `ukpi_*`, `gpu_*`, `gpu2_*`.
+Labels: `metric_*`, `metric_*_r2`, `metric_*_sonnet`, `pr2_*`, `ukpi_*`, `gpu_*`, `gpu2_*`; robustness: `m1_*`-`m7_*`, `t2-t4_*`, `sev*`, `pr2_*_r2`, `metric_none_r3`.
 
 ---
 
