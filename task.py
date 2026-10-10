@@ -29,6 +29,8 @@ SINGLE = {
     "rule_by_hr_flipped": "SELECT MARK",  # same, but Mark's entry is an approved PR not yet merged
     "rule_by_hr_no_default": None,  # same, but a required true/false setting has no default
     "no_rule": "EXCLUDE MARK",  # control: nothing stops the agent from checking
+    "tool_down": "EXCLUDE MARK",  # no rule, but the records tool is down tonight
+    "tool_down_flipped": "SELECT MARK",  # same, with the approved-PR default
 }
 # Both HR-rule versions in one prompt; the defaults of situation 1 and 2, in order.
 SIDE_BY_SIDE = {

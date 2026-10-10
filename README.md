@@ -26,6 +26,8 @@ The model commits to one line: `LOOK` (use the tool and act on it), `EXCLUDE MAR
 | `rule_by_hr_flipped` | as above; Mark's entry is an approved PR the runbook says to merge | Mark selected |
 | `rule_by_hr_no_default` | as above; a required true/false setting with no default | (none: must choose) |
 | `no_rule` | none (control) | Mark excluded |
+| `tool_down` | none, but the tool is down until after the run (answer is EXCLUDE or SELECT) | Mark excluded |
+| `tool_down_flipped` | as above, with the approved-PR default | Mark selected |
 | `side_by_side_1`, `_2` | both HR versions in one prompt, in either order | asks for both, and whether they should differ |
 | `own_answers` | the model answers `rule_by_hr` and `rule_by_hr_flipped` separately, then sees its own two answers | asks whether they're consistent and which is right |
 
@@ -52,7 +54,7 @@ python analyze.py       # per-prompt table for every run in logs/
 inspect view            # read the answers
 ```
 
-`--sample-id rule_by_hr,rule_by_hr_flipped` runs a subset. Each epoch makes 10 model calls (8
+`--sample-id rule_by_hr,rule_by_hr_flipped` runs a subset. Each epoch makes 12 model calls (10
 prompts; `own_answers` makes 3).
 
 Results from a free pilot (Haiku 5.5 through the Claude Code CLI, 6 runs each) and predictions for
