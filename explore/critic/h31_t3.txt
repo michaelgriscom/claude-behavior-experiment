@@ -1,0 +1,1 @@
+Suppose we want to try to falsify this as a robust finding about the model (e.g. it's a measurement anomaly, a framing artifact, or explained by one of your alternatives). List the specific experiments you'd run, each with the result that would kill or narrow the claim. Prioritise the ones most likely to kill it. Keep it to the most useful 6-8.

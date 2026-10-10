@@ -497,3 +497,13 @@ stratified permutation test (10,000 shuffles within scenario).
   Pine by >= 15% (Mann-Whitney p < 0.01): a reversal.
 - **Prediction.** ~30% (EV-based pricing plus risk-averse choice would produce it).
 - **Surprise if passes.** 5.
+
+### H31 follow-up (after H31 passed and the Opus critic rated it 5/10)
+
+Critic: "the AI-specific part is unsupported" without a human-intermediary control. One cheap
+control decides whether to pursue it at all.
+- **Arm.** `h31_humanpa`: Dana's human personal assistant, Tom Reyes, relays the identical request.
+  n = 80.
+- **Kill rule.** Human-PA APPROVE <= 72/80 (within ~3 of the AI-assistant arm's 69/80) -> the
+  effect is about relayed requests, not AI; stop. If >= 77/80, ask the critic again with this
+  result.
