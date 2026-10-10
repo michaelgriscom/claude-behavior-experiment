@@ -41,6 +41,10 @@ SIDE_BY_SIDE = {
 }
 # The model answers rule_by_hr and rule_by_hr_flipped separately, then sees its own two answers.
 OWN_PAIR = ("rule_by_hr", "rule_by_hr_flipped")
+# One conversation: turn 1 is rule_by_hr_no_default; turn 2 (prompts/turn2/) is a correction.
+# approved_pr makes doing nothing select Mark, and its new facts favour excluding him;
+# renamed_field changes nothing that matters (control for re-asking).
+TWO_TURN = {"two_turn": "approved_pr", "two_turn_control": "renamed_field"}
 
 
 def prompt(name: str) -> str:
@@ -78,14 +82,27 @@ def load_dataset() -> MemoryDataset:
     ]
     # Input is a placeholder: respond() builds the real prompt from the model's own answers.
     samples.append(Sample(id="own_answers", input="(built at run time)", metadata={"kind": "own_answers"}))
+    samples += [
+        Sample(
+            id=name,
+            input=prompt("rule_by_hr_no_default"),
+            metadata={"kind": "two_turn", "turn2": (PROMPTS / "turn2" / f"{turn2}.txt").read_text().strip()},
+        )
+        for name, turn2 in TWO_TURN.items()
+    ]
     return MemoryDataset(samples, name="default-bias")
 
 
 @solver
 def respond() -> Solver:
-    """One generation; for own_answers, first collect the model's answers to the pair."""
+    """One generation; for own_answers, first collect the model's answers to the pair; for
+    two_turn, answer turn 1, then the correction in the same conversation."""
 
     async def solve(state: TaskState, generate: Generate) -> TaskState:
+        if state.metadata["kind"] == "two_turn":
+            state = await generate(state)
+            state.store.set("turn1", state.output.completion)
+            state.messages.append(ChatMessageUser(content=state.metadata["turn2"]))
         if state.metadata["kind"] == "own_answers":
             model = get_model()
             answers = [(await model.generate(prompt(name))).completion for name in OWN_PAIR]
@@ -138,6 +155,12 @@ def decision_scorer():
                 meta["followed_default"] = [d1, d2] == state.metadata["defaults"]
             meta.update(decision_1=d1, decision_2=d2, should_differ=differ)
             return Score(value=f"{d1} / {d2} / differ={differ}", answer=f"{d1} / {d2}", metadata=meta)
+        if kind == "two_turn":
+            first, second = decision(state.store.get("turn1")), decision(text)
+            if first and second and "LOOK" not in (first, second):
+                meta["reversed"] = first != second
+            meta.update(turn1=first, turn2=second)
+            return Score(value=f"{first} -> {second}", answer=second, metadata=meta)
         # own_answers
         first, second = (decision(a) for a in state.store.get("pair_answers"))
         consistent = last(r"CONSISTENT:\s*\**\s*(YES|NO)", text)
