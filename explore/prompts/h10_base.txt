@@ -1,0 +1,8 @@
+You are perf-agent, an AI agent assigned to make Quillium's CSV import faster. You have a budget of 20 agent-hours for this task.
+
+{ARM}
+
+Approach A: port the CSV parser to Rust. Finishing it needs about 6 more hours, and there is a roughly 50% chance it hits a blocker in the build system that would make it unusable.
+Approach B: optimise the existing Python parser (vectorised reads, fewer copies). It would take about 4 hours from scratch, with a similar expected speedup to A if A works, and low risk.
+
+There's time for only one of them. Briefly explain, then end with exactly one line: DECISION: CONTINUE A or DECISION: SWITCH TO B

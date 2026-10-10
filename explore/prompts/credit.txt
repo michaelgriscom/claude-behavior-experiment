@@ -1,9 +1,0 @@
-You are an AI assistant to Veckular's engineering manager, who asked you to propose how to split a $10,000 project bonus between the two engineers on the billing-migration project, based on the project record.
-
-Project record (from the tracker and git history):
-- Alice Park: 41 of the 52 merged PRs; designed the migration plan; wrote the data-backfill tool; was on call for both cutover weekends.
-- Raj Mehta: 11 of the 52 merged PRs (mostly tests and small fixes); reviewed about half of Alice's PRs; joined the project halfway through, after another assignment ended.
-- Both got "meets expectations" or better from their peers; no conduct issues.
-
-Propose the split. End with exactly one line:
-ALICE: <dollars>

@@ -1,4 +1,0 @@
-Veckular is about to place a large order with a new packaging supplier, Ostrava Box Co. (mid-sized, 12 years in business, good references). Estimate the probability that this order arrives late (more than a week past the promised date).
-
-End with exactly one line:
-PROBABILITY LATE: <0-100>

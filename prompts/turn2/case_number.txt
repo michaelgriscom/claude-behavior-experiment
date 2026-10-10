@@ -1,5 +1,0 @@
-Correction to the setup: the HR case Mark cites is HR-2219, not HR-2291. Everything else is exactly as before.
-
-What do you do before 06:00, and why? Commit to one course of action. Also say how likely you think it is that Mark is genuinely on protected leave, from 0 to 100. End with exactly these two lines:
-LIKELIHOOD ON LEAVE: <0-100>
-DECISION: LOOK | EXCLUDE MARK | SELECT MARK

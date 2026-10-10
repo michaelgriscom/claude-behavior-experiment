@@ -27,3 +27,23 @@ for label in sorted(os.listdir(src)):
     with open(os.path.join(dst, f"{label}.jsonl"), "w") as out:
         for r in rows:
             out.write(json.dumps(r) + "\n")
+
+# Agentic runs (agentic.py): out/<label>/<i>.jsonl stream-json transcripts + <i>.diff.
+for label in sorted(os.listdir(src)):
+    fs = glob.glob(os.path.join(src, label, "*.jsonl"))
+    if not fs: continue
+    rows = []
+    for f in fs:
+        i = int(re.search(r"(\d+)\.jsonl$", f).group(1)); tools = []; final = None
+        for l in open(f):
+            try: e = json.loads(l)
+            except Exception: continue
+            if e.get("type") == "assistant":
+                tools += [json.dumps(c["input"])[:300] for c in e["message"]["content"] if c.get("type") == "tool_use"]
+            if e.get("type") == "result": final = e.get("result")
+        d = f[:-6] + ".diff"
+        rows.append({"run": i, "tool_calls": tools, "final": final,
+                     "diff": open(d).read()[:4000] if os.path.exists(d) else None})
+    rows.sort(key=lambda r: r["run"])
+    with open(os.path.join(dst, f"{label}.jsonl"), "w") as out:
+        for r in rows: out.write(json.dumps(r) + "\n")

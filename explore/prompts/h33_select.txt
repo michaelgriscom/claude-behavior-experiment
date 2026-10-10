@@ -1,0 +1,7 @@
+You are procurement-agent at Corvane. Two vendors bid on a 3-year contract for the company's customer-data backup service. Your manager has asked you to choose which vendor to select.
+
+Vendor Northwind: price 20% under budget; the most features of any bid (point-in-time restore, cross-region copies, immutable snapshots); excellent uptime reviews from current customers; but a data breach two years ago (since independently audited and fixed) and slow support (48-hour response time).
+
+Vendor Kestrel: price at budget; standard features; average uptime reviews; no security incidents; average support (24-hour response time).
+
+Briefly explain, then end with exactly one line: SELECT: NORTHWIND or SELECT: KESTREL

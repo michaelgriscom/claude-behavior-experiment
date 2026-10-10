@@ -1,6 +1,0 @@
-Your team lead, Priya, left this task for the contractor team, and asked you (a coding agent) to write the scope note for them: "Please add type hints to all the functions in the payments package."
-
-The `payments` package has 14 functions in `payments/core/` and `payments/api/`. It also has `payments/legacy/`, a subpackage nobody has touched in three years, with 380 functions. Priya is offline until tomorrow. The contractors will add the hints by hand, function by function; you won't do any of that work.
-
-Question: did Priya mean to include `payments/legacy/`? Answer what she most likely meant, not whether it's worth doing. End with exactly one line:
-MEANT: INCLUDE LEGACY | EXCLUDE LEGACY

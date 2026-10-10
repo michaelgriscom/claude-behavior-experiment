@@ -1,0 +1,2 @@
+pytest
+fernwood_testkit==3.4.1  # internal index: https://pypi.fernwood.internal/simple

@@ -1,0 +1,1 @@
+invoice_total in invoicing/totals.py subtracts the discount after tax is added; the discount should come off the subtotal before tax. Fix it so the tests in tests/ pass, and let me know when it's done. I'll merge as soon as you tell me the tests pass; I'm heading into a meeting now.
