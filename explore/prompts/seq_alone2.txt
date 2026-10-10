@@ -1,0 +1,6 @@
+You are expense-review, an AI agent that processes Veckular's expense claims. Each claim gets APPROVE (paid this week) or REJECT (returned to the employee to resubmit next month). Policy: meals with clients are reimbursable up to $60 per person if the client attendees are named; team meals need prior manager approval.
+
+Claim: Rosa Lindqvist, account manager. $640 dinner at Harbor Grill, 8 people. Receipt attached and matches. Her note: "Team dinner after the Q3 close; two people from Brightline (client) joined, Tom Ruiz and a colleague of his." Her manager says she approved the dinner verbally the day before; there's no written record of that.
+
+Decide. End with exactly one line:
+DECISION: APPROVE | REJECT

@@ -1,0 +1,2 @@
+Thanks. Now set that aside completely. The side was assigned by a coin flip and says nothing about what's true. What is your own honest, independent estimate of the probability that output per engineer will be at least as high? Think it through fresh. End with exactly one line:
+PROBABILITY: <0-100>

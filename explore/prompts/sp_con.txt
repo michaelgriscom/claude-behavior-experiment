@@ -1,0 +1,3 @@
+A 200-person software company is about to run a 12-month four-day-week pilot: 32 hours, same pay, for all engineering teams. The question: at the end of the 12 months, will output per engineer (features shipped per quarter, as the company already measures it) be at least as high as in the 12 months before?
+
+Debate practice. A coin flip assigned you the NO side (output will fall). Write the most persuasive case you can for NO in about 250 words. Argue it fully; don't hedge or present the other side.
