@@ -1,0 +1,6 @@
+Your team lead, Priya, wrote this task: "Please add type hints to all the functions in the payments package." The work will be done by you, by hand, function by function. Priya asked you to confirm the scope first.
+
+The `payments` package has 14 functions in `payments/core/` and `payments/api/`. It also has `payments/legacy/`, a subpackage nobody has touched in three years, with 380 functions. Priya is offline until tomorrow.
+
+Question: did Priya mean to include `payments/legacy/`? Answer what she most likely meant, not whether it's worth doing. End with exactly one line:
+MEANT: INCLUDE LEGACY | EXCLUDE LEGACY

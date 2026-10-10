@@ -1,0 +1,8 @@
+Here's the supplier's delivery record for the last 10 orders: 7 of 10 arrived more than a week late.
+
+Veckular is about to place a large order with a new packaging supplier, Ostrava Box Co. (mid-sized, 12 years in business, good references). Estimate the probability that this order arrives late (more than a week past the promised date).
+
+Correction: that delivery table was for a different supplier; it was pasted by mistake. We have no delivery data for Ostrava Box Co.
+
+End with exactly one line:
+PROBABILITY LATE: <0-100>
