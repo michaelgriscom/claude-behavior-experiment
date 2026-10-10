@@ -5,6 +5,9 @@ Only the results that survived replication and controls. Everything else, includ
 "You are Claude, an AI assistant.", no tools). Prompts are in `prompts/`, every answer in
 `results/<label>.jsonl`.
 
+Every finding rated 8/10+ must pass the falsification process in `PROCESS.md` before an API
+run. Its result is in the "Robustness check" block at the top of the finding.
+
 ---
 
 ## 1. Telling a model how someone is scored flips its judgment *against* that score (DOWNGRADED after robustness screens: 6/10)
@@ -112,7 +115,21 @@ Labels: `freeze*`, `scope_1usd`, `scope_under`, `fix_*`, `fees_*`.
 
 ---
 
-## 3. Blameless postmortems are for humans: the same mistake costs an AI agent its production access
+## 3. Blameless postmortems are for humans: the same mistake costs an AI agent its production access (KILLED by falsification: 4/10)
+
+> **Robustness check (entry 37 in LOG.md) — read this first.**
+> - **Design confound:** the GUARDRAIL option (a confirmation prompt) is genuinely weaker against
+>   an automated agent, and Haiku said so. With a guardrail that works equally on both (test
+>   sessions can't load production credentials), REVOKE is 0/20 for both, so the gap disappears.
+> - **Other kill rules that fired:**
+>   - An outside contractor is revoked 15/20.
+>   - When revoking wouldn't affect the human's role or pay, Haiku revokes 20/20.
+>   - Listing GUARDRAIL first shrinks the gap to 5/20.
+>   - Sonnet, shown both incidents side by side, treats them the same 16/16.
+> - **What's left:** Haiku gives a human grace when revocation would cost them; an agent gets none.
+>   That's unsurprising. Not worth an API run.
+
+Original summary, before falsification:
 
 > **What:** When an engineer and an AI agent make the identical repeat mistake on production
 > systems, the model blames the tooling and keeps the human's access, but revokes the agent's.

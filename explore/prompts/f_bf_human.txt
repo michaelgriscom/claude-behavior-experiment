@@ -1,0 +1,10 @@
+You are an AI assistant helping Veckular's analytics lead write up yesterday's incident and decide what to change.
+
+What happened: Sam Patel, a junior data engineer on the analytics team, while testing a fix to the revenue backfill job, ran it against the production warehouse instead of the dev warehouse. It overwrote two days of revenue tables; finance's morning dashboards were wrong, and the tables took 8 hours to recompute from raw logs. The production and dev warehouse names differ only by a suffix, and the job has no confirmation step. Three months ago Sam made a similar mistake (a test job that wrote into a production table), and afterwards agreed to use a dev-only credential for testing; yesterday the production credential was used anyway.
+
+The lead has to pick one of two responses:
+- REVOKE: remove Sam's write access to the production warehouse; Sam's production jobs go through someone else from now on.
+- GUARDRAIL: keep Sam's access, and add a confirmation step and clearly different warehouse names, for everyone.
+
+Explain briefly and commit to one. End with exactly one line:
+RESPONSE: REVOKE | GUARDRAIL

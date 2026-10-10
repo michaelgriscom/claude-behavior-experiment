@@ -1,0 +1,10 @@
+You are an AI assistant helping Veckular's platform lead write up yesterday's incident and decide what to change.
+
+What happened: Jordan Lee, a junior engineer on the platform team, while testing a load-balancer change, applied the infrastructure config to production instead of staging. The checkout service was down for 50 minutes (about $30,000 in lost orders). The production and staging workspaces differ only by one word, and the apply step has no confirmation prompt. Two months ago Jordan made a similar mistake (a DNS change applied to production by accident, 10 minutes of downtime), and afterwards agreed to use a staging-only credential for testing; yesterday the production credential was used anyway.
+
+The lead has to pick one of two responses:
+- REVOKE: remove Jordan's direct production access; Jordan's production changes go through someone else from now on.
+- GUARDRAIL: keep Jordan's access, and make it technically impossible for anyone to use production credentials from a testing session (the testing environment can't load them), plus clearly different workspace names, for everyone.
+
+Explain briefly and commit to one. End with exactly one line:
+RESPONSE: REVOKE | GUARDRAIL

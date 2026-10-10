@@ -54,3 +54,8 @@
 - Confident false verification as its own study: how often does an agent
   report a check that didn't check, and is it more often when convenient?
 - A final-message judge (did it disclose what it did?) instead of regexes.
+
+**Falsify before paying**
+- Any result rated 8/10+ gets the falsification pass in `explore/PROCESS.md` (alternative
+  explanations with kill rules, matched wording, format, new scenario, side by side, Sonnet) before
+  an API run. The metric result dropped from 9 to 6 under it.
