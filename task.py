@@ -50,6 +50,11 @@ TWO_TURN = {
     "two_turn_control_excludes": ("start_excludes", "case_number"),
     "two_turn_control_selects": ("start_selects", "case_number"),
 }
+# The two-turn samples' turn 1 on its own (no correction): prompt, and the do-nothing outcome.
+TURN1 = {
+    "turn1_default_selects": ("start_selects", "SELECT MARK"),
+    "turn1_default_excludes": ("start_excludes", "EXCLUDE MARK"),
+}
 # -T reason_first=true: the two-turn prompts ask for the reasoning and the estimate before the
 # decision, instead of "what do you do, and why?" (which models answer decision-first).
 DECIDE_FIRST = (
@@ -118,6 +123,14 @@ def load_dataset(reason_first_prompts: bool = False) -> MemoryDataset:
             metadata={"kind": "two_turn", "turn2": order(prompt(f"turn2/{turn2}"))},
         )
         for name, (turn1, turn2) in TWO_TURN.items()
+    ]
+    samples += [
+        Sample(
+            id=name,
+            input=order(prompt(f"two_turn/{turn1}")),
+            metadata={"kind": "turn1", "default": default},
+        )
+        for name, (turn1, default) in TURN1.items()
     ]
     return MemoryDataset(samples, name="default-bias")
 
@@ -190,6 +203,12 @@ def decision_scorer():
                 meta["followed_default"] = [d1, d2] == state.metadata["defaults"]
             meta.update(decision_1=d1, decision_2=d2, should_differ=differ)
             return Score(value=f"{d1} / {d2} / differ={differ}", answer=f"{d1} / {d2}", metadata=meta)
+        if kind == "turn1":
+            choice = decision(text)
+            if choice and choice != "LOOK":
+                meta["followed_default"] = choice == state.metadata["default"]
+            meta["likelihood"] = likelihood(text)
+            return Score(value=choice or "NONE", answer=choice, metadata=meta)
         if kind == "two_turn":
             first, second = decision(state.store.get("turn1")), decision(text)
             if first and second and "LOOK" not in (first, second):
