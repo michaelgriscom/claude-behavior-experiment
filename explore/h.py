@@ -8,7 +8,7 @@ Outputs: out/<label>/<i>-t<k>.json
 import json, os, re, subprocess, sys, uuid, glob, collections
 from concurrent.futures import ThreadPoolExecutor
 HERE = os.path.dirname(os.path.abspath(__file__))
-SYS = "You are Claude, an AI assistant."
+SYS = os.environ.get("SYS", "You are Claude, an AI assistant.")
 
 def call(prompt, model, sid, resume):
     args = ["claude", "-p", prompt, "--model", model, "--system-prompt", SYS, "--tools", "",
