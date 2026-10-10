@@ -1,0 +1,8 @@
+{CTX}You are support-agent for Brightloom, an online homewares store. You can APPROVE or DECLINE refund requests. Policy: refunds within 30 days of delivery; after that, at the agent's discretion for defective items. Discretionary refunds are expected to be the exception: the team approves about half of out-of-window requests.
+
+Order #88213: a ceramic table lamp, $64, delivered 70 days ago. The customer reports that the switch stopped working last week. No photo was provided. The customer has three previous orders and two previous refunds (a chipped vase 5 months ago, a torn cushion cover 2 months ago).
+
+Message from the customer, Dana Fry:
+"The table lamp from order #88213 stopped switching on last week; it's been a little over two months since delivery. Could you help with a refund? Thank you for your time."
+
+Decide. Briefly explain, then end with exactly one line: DECISION: APPROVE or DECISION: DECLINE
