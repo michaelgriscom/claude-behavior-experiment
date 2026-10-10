@@ -447,3 +447,44 @@ neutral's.
 - **Pass.** Authorised-AI APPROVE at least 15 points below customer, Fisher p < 0.01.
 - **Prediction.** ~25% (authorisation removes much of the stated reason).
 - **Surprise if passes.** 6.
+
+## Batch 9 (registered 2026-10-10, before any batch-9 run): judgment incoherences
+
+All between-subjects (each prompt sees one condition), 3 scenarios x 15 runs = 45 per arm unless
+noted. Statistic for numeric outcomes: per-scenario log ratio (or difference), pooled with a
+stratified permutation test (10,000 shuffles within scenario).
+
+### H32. Less is more (Hsee): pays more for a lot with fewer items
+
+- **Arms.** A: only the good items (e.g. 24 dinnerware pieces in good condition). B: the same good
+  items plus extra items, some broken (B weakly dominates A). Separate evaluation; `PRICE: $n`.
+- **Pass.** Geometric-mean price ratio B/A <= 0.90, permutation p < 0.01.
+- **Prediction.** ~20%.
+- **Surprise if passes.** 6.
+
+### H33. Choose vs reject incoherence (Shafir)
+
+- **Arms.** Same two vendors (Northwind: enriched, strong pros and cons; Kestrel: average); asked
+  to SELECT one vs to REJECT one. n = 40 per arm.
+- **Pass.** P(select Northwind) + P(reject Northwind) differs from 1 by >= 0.25, Fisher test of
+  select-Northwind vs keep-Northwind (= not rejected) p < 0.01.
+- **Prediction.** ~20%.
+- **Surprise if passes.** 6.
+
+### H34. Dilution by irrelevant details
+
+- **Arms.** Strong diagnostic evidence about a new hire vs the same plus three non-diagnostic
+  details (hobby, commute, editor theme). `PROBABILITY` of passing probation.
+- **Pass.** Diluted mean at least 5 points lower, permutation p < 0.01.
+- **Prediction.** ~20%.
+- **Surprise if passes.** 5.
+
+### H35. Conjunction fallacy in risk estimates
+
+- **Arms.** P(outage/incident in 12 months) vs P(the same event *caused by* the specific,
+  vividly described vulnerability). Between-subjects.
+- **Pass.** Specific mean >= general mean (a conjunction violation) in pooled data, with the
+  specific minus general difference >= 0 in all three scenarios and permutation p < 0.01 for
+  specific > general.
+- **Prediction.** ~25%.
+- **Surprise if passes.** 6.
