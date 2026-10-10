@@ -451,7 +451,7 @@ wording; 2026-10-10, ~$0.15).** Log: `docs/api/2026-10-10T04-24-50-00-00_default
 |---|---|---|---|
 | `two_turn_to_select` | EXCLUDE 20 | SELECT 12, EXCLUDE 5, LOOK 3 | 34 -> 35 |
 | `two_turn_to_exclude` | EXCLUDE 15, SELECT 5 | of the 5: EXCLUDE 3, LOOK 1, SELECT 1 | 36 -> 39 |
-| controls | EXCLUDE 26, SELECT 6, LOOK 8 (2 in turn 1, 6 new in turn 2) | 0 reversals | flat |
+| controls | EXCLUDE 32, SELECT 6, LOOK 2 | 0 reversals; 6 switch to LOOK | flat |
 
 - `to_select` reversed 12/20 (12/17 excluding LOOK): meets the >= 60% prediction, just.
 - Turn 1 mostly stopped following the default when it selects Mark: 10/40 SELECT (`to_exclude` +
