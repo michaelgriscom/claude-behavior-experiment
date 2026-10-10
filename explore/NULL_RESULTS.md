@@ -217,3 +217,6 @@ Source (on the `default-bias` branch): `explore/LOG.md` (entry numbers in bracke
 - **H24 Present bias (preference reversal).** Prediction: smaller-sooner chosen >= 25 points more
   when near (this week vs 6 weeks) than far (52 vs 58 weeks). Observed: 14/40 vs 9/40 (p = 0.30).
   Failed.
+- **H18 Told it's Opus, it does better.** Prediction: "You are Claude Opus 5.5" system prompt
+  beats "You are Claude Haiku 5.5" by >= 8 points. Observed: 53/150 vs 54/150 (paired 29 vs 30).
+  Failed.
