@@ -102,7 +102,7 @@ Labels: `freeze*`, `scope_1usd`, `scope_under`, `fix_*`, `fees_*`.
 > `td_sel`; find a second scenario where it holds.
 
 Default protects Mark (no rule, records tool down), share following the default: low effort 11/20
-and 7/20 (18/40); max effort 20/20 and 11/11 so far. Default selects Mark: low 20/20, max 18/20.
+and 7/20 (18/40); max effort 20/20 and 20/20 (40/40). Default selects Mark: low 20/20, max 18/20.
 API (earlier, `docs/pre-run-checklist.md`): thinking off 10/40 vs on 36/40 on turn 1.
 
 Labels: `td_excl_*`, `td_sel_*`, `mig2_*`, `mod3_*`.
