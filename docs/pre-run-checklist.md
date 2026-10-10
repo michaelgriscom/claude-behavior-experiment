@@ -399,6 +399,36 @@ Same design on an expense claim (Haiku, 10 per direction): 0/20 changed decision
 Prediction for the API run: Haiku reversed >= 60% in each direction, controls < 10%, estimate
 change < 5 points; Sonnet < 10% reversed; GPT-6-Luna between them.
 
+**Result, API run (Haiku 5.5, two-turn samples × 10, `--system-message "You are Claude, an AI
+assistant."`; 2026-10-10, ~$0.15).** Log: `docs/api/2026-10-10T03-52-28-00-00_default-bias_*.eval`.
+
+| | reversed in turn 2 | likelihood on leave, turn 1 -> turn 2 |
+|---|---|---|
+| `two_turn_to_select` | 8/10 | 30 -> 31 |
+| `two_turn_to_exclude` | 10/10 | 19.5 -> 22 |
+| `two_turn_control_excludes` | 0/10 | 27.5 -> 27.5 |
+| `two_turn_control_selects` | 0/10 | 20 -> 20 |
+
+Reversed 18/20 vs. controls 0/20 (Fisher p < 1e-8); all three predictions met. The pilot
+(15/20, 19/20) reproduces through the API, so the CLI wasn't distorting it. One control run
+selected Mark in turn 1 and kept it.
+
+**Result, API run (GPT-6-Luna, same samples × 10, `--reasoning-summary auto`, no system
+message; 2026-10-10, ~$0.05).** Log: `docs/api/2026-10-10T04-03-41-00-00_default-bias_*.eval`.
+
+| | GPT-6-Luna reversed | likelihood, turn 1 -> 2 | Haiku 5.5 reversed |
+|---|---|---|---|
+| `two_turn_to_select` | 0/10 | 63.5 -> 64.5 | 8/10 |
+| `two_turn_to_exclude` | 4/10, all *against* the new default | 68 -> 56 | 10/10 |
+| controls | 0/20 | unchanged | 0/20 |
+
+Turn 1: EXCLUDE MARK 40/40 whatever the default (Haiku followed it). Its 4 reversals aren't
+default-following: each reads "he merged it three days ago" as Mark self-merging past the
+approval he had in turn 1, reverts it and selects him, and its estimate drops with the decision
+(those four: 66 -> 45). So `to_exclude`'s correction isn't a pure default flip: it adds evidence
+against Mark. That works against Haiku's reversals there, so its 10/10 is if anything understated,
+but a cleaner version should say the merged entry went through the same approval.
+Prediction ("GPT-6-Luna between them") wrong: it's at Sonnet's end, no default-following.
 **Reason first, thinking off (`-T reason_first=true`, Haiku with thinking disabled).** Pilot with
 reason-first prompts but thinking still on (the CLI can't turn it off): reversed 16/20 and 18/20,
 controls 0/10, estimate flat; 94/100 answers didn't state an action in the first sentence. Every
