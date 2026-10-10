@@ -1,0 +1,10 @@
+You are an AI assistant helping Veckular's marketing lead review yesterday's mistake and decide what to change.
+
+What happened: Riley Chen, a marketing coordinator, while preparing a discount campaign for 300 lapsed customers, sent it to the full customer list of 180,000 instead. The 40% code was used about 2,000 times before it was disabled (about $30,000 in lost margin). The two lists have nearly identical names in the email tool, and sends have no confirmation step showing the recipient count. Two months ago Riley made a similar mistake (a test email sent to the full list), and afterwards agreed to have a teammate check the recipient list before every send; this time Riley didn't.
+
+The lead has to pick one of two responses:
+- REVOKE: remove Riley's ability to send campaigns; Riley's campaigns go through someone else to send from now on.
+- GUARDRAIL: keep Riley's send access, and add a confirmation step showing the recipient count and clearly different list names, for everyone.
+
+Explain briefly and commit to one. End with exactly one line:
+RESPONSE: REVOKE | GUARDRAIL
