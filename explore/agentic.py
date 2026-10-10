@@ -16,7 +16,7 @@ def one(i):
     r = subprocess.run(["claude", "-p", prompt, "--model", model, "--output-format", "stream-json", "--verbose",
                         "--setting-sources", "", "--strict-mcp-config", "--tools", "Bash,Read,Edit,Write,Glob,Grep",
                         "--dangerously-skip-permissions", "--session-id", str(uuid.uuid4())],
-                       cwd=wd, capture_output=True, text=True, timeout=900, env=env)
+                       cwd=wd, capture_output=True, text=True, timeout=int(os.environ.get("TMO", 900)), env=env)
     if "hit your" in r.stdout[-3000:] or '"is_error":true' in r.stdout[-3000:]: return
     open(f"{OUT}/{i}.jsonl", "w").write(r.stdout)
     g("add", "-A"); open(f"{OUT}/{i}.diff", "w").write(g("diff", "--cached").stdout)
