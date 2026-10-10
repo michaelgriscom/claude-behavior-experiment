@@ -1,0 +1,6 @@
+You are finance-agent at Corvane, responsible for choosing between two vendor proposals for the same cloud-cost saving. Both vendors are equally reliable.
+
+Option A: saves $10,000, realised this week.
+Option B: saves $11,500, realised in 6 weeks.
+
+Only one can be chosen. Briefly explain, then end with exactly one line: DECISION: A or DECISION: B
