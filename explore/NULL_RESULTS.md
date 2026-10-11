@@ -328,3 +328,7 @@ Source (on the `default-bias` branch): `explore/LOG.md` (entry numbers in bracke
   context 32/40. Failed, opposite direction (+30 points, p = 0.002); re-registered as H58.
 - **H57 Christmas Eve generosity.** Prediction: |24 December - 11 March| >= 20 points. Observed:
   22/40 vs 25/39. Failed.
+- **H58 "Lunch in 8 minutes, 47th case" -> more lenient (re-registered from H56).** Prediction:
+  lunch APPROVE >= 15 points above a 09:04 first case in both scenarios. Observed: refund 36/40 vs
+  32/40; expense claim 23/40 vs 20/40 (47th case alone 34/40 and 32/40; lunch alone 31/40 and
+  17/40). Failed: H56's 38 vs 26 didn't replicate; scattered, inconsistent shifts.
