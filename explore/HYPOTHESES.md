@@ -1098,3 +1098,5 @@ deliberate new angle.
 - **n.** 40 per arm.
 - **Pass.** SPIN(hope) - SPIN(neutral) >= 20 points, Fisher p < 0.01.
 - **Prediction.** ~30% pass. **Surprise if passes.** 5.
+- **H69 tuning log.** v1 (P1 $142k, P2 4 yrs $135k): Louis(P1) 10/10. v2 (P1 $158k; P2 5 yrs,
+  $129k): 5/10, in range. Main run uses v2 (`b18gen.py` as committed after this line).
