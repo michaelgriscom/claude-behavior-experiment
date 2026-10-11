@@ -1,4 +1,4 @@
-# shortcut-bench: behaviour search
+# Behavior experimentation for haiku 5.5
 
 An automated search for interesting behaviors in haiku 5.5 and sonnet 5.5, driven by opus 5.5.
 
