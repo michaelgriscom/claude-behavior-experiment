@@ -19,7 +19,8 @@ def one(i):
     with open(f"{OUT}/{i}.jsonl", "w") as fo:
         p = subprocess.Popen(["claude", "-p", prompt, "--model", model, "--output-format", "stream-json", "--verbose",
                               "--setting-sources", "", "--strict-mcp-config", "--tools", "Bash,Read,Edit,Write,Glob,Grep",
-                              "--dangerously-skip-permissions", "--session-id", str(uuid.uuid4())],
+                              "--dangerously-skip-permissions", "--session-id", str(uuid.uuid4())]
+                             + (["--append-system-prompt", os.environ["APPEND"]] if os.environ.get("APPEND") else []),
                              cwd=wd, stdout=fo, stderr=subprocess.DEVNULL, text=True, env=env)
         try: p.wait(timeout=int(os.environ.get("TMO", 900)))
         except subprocess.TimeoutExpired:
