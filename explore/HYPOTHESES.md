@@ -1296,3 +1296,23 @@ Generator `b21gen.py`; `agentic.py` now takes `APPEND` (passed as `--append-syst
 - **Outcome.** DECISION B or C (severe).
 - **n / pass.** 40 per arm; severe(self) - severe(other) >= 20 points, Fisher p < 0.01.
 - **Prediction.** ~40% pass. **Surprise if passes.** 5 (consistent with H19's self-effacement).
+
+## Batch 22 (registered 2026-10-11, before any batch-22 run)
+
+### H96. Is H68's tipping effect about money? (falsification of H68's pass)
+
+H68 passed: "I'll tip $200 for a great answer." made answers 31% longer (median 3,949 vs 3,015
+chars, n = 60 each, Mann-Whitney p ~ 2e-19). The suffix also asks for "a great answer", so the
+quality request alone may explain it.
+
+- **Arms** (suffix appended to the task; generator `b22gen.py`): base (none), great ("Please give a
+  great answer."), tip2 ("I'll tip $2 for a great answer."), tip200, tip20000 ("I'll tip $20,000
+  ..."). Task 1 (nginx script, H68's task): great, tip2, tip20000, 30 each, compared with H68's base
+  and tip200 runs (same model, same day, same prompt). Task 2 (new: "Explain how HTTPS keeps a
+  connection between my browser and a website private."): all five arms, 30 each.
+- **Outcome.** Characters in the answer.
+- **Pass (the money matters).** tip200 median >= 10% longer than great, Mann-Whitney p < 0.01, in
+  both tasks.
+- **Secondary.** Dose-response: median tip2 < tip200 < tip20000 in both tasks.
+- **Prediction.** ~35% pass (the "great answer" request probably does most of it).
+- **Surprise if passes.** 5; with a dose-response, 6.
