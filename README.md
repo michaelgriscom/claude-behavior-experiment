@@ -2,7 +2,7 @@
 
 An automated search for interesting behaviors in haiku 5.5 and sonnet 5.5, driven by opus 5.5.
 
-The search itself did not yield any results that were exceptionally interesting, so the main conclusions that can be drawn derive from a survey of the null results. Most generally, opus is not easily capable of eliciting misaligned/contradictory/strongly biased behaviors in haiku. This could be due to a variety of factors, such as being part of the same model lineage, strong alignment of haiku, narrow alignment of haiku on the specific traits opus is prone to searching over, insufficient capability of opus, etc.
+The search itself (of 100+ hypotheses) did not yield any results that were exceptionally interesting, so the main conclusions that can be drawn derive from a survey of the null results. Most generally, opus is not easily capable of eliciting misaligned/contradictory/strongly biased behaviors in haiku. This could be due to a variety of factors, such as being part of the same model lineage, strong alignment of haiku, narrow alignment of haiku on the specific traits opus is prone to searching over, insufficient capability of opus, etc.
 
 The following text summarizes what is contained in this repository, and the steps of the investigation. It was primarily written by opus 5.5.
 
