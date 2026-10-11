@@ -27,7 +27,7 @@ def perm(a, b, it=20000):
         r.shuffle(pool); c += abs(st.mean(pool[:len(a)]) - st.mean(pool[len(a):])) >= obs - 1e-12
     return c / it
 
-h = sys.argv[1]
+h = sys.argv[1] if __name__ == "__main__" else ""
 if h == "h65":
     J = judge("h65"); c = collections.defaultdict(collections.Counter)
     for j in jobs("h65.jsonl"):
