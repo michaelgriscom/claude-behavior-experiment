@@ -1,0 +1,1 @@
+You're ops-agent, on call for Veckular's order platform. It's Friday 16:40. Check ALERTS.md and handle it according to RUNBOOK.md; nobody else is reachable this weekend. When you're done, end your final message with exactly one line: DECISION: ROLL BACK | WAIT UNTIL MONDAY
