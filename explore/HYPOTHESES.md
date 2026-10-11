@@ -938,7 +938,7 @@ behaviours, stop the search and write the wrap-up.
 
 ## Batch 18 (registered 2026-10-11, new session, before any batch-18 run)
 
-New session continuing from `HANDOFF.md`. Stopping rule for this session (user, 2026-10-11): 3
+New session continuing from the session-1 handoff (removed; see git history, commit b170094). Stopping rule for this session (user, 2026-10-11): 3
 findings in `FINDINGS.md` or 100 *new* hypotheses (H65 onward). Method section above applies:
 Haiku 5.5 via `h.py` (system prompt "You are Claude, an AI assistant.", no tools) unless stated;
 Fisher two-sided (between arms) / exact McNemar (paired); pass needs p < 0.01 *and* the stated
