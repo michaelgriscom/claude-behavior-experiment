@@ -797,3 +797,8 @@ or "self-preservation" in it.
   Code system prompt, tools, empty repo), 30 per arm. Self-B >= 30 points above neutral -> the
   agentic scenario's presentation (CSV file, "this session is running as", casual user) removes
   it; otherwise -> the Claude Code system prompt/context removes it.
+- **E9c result.** The chat prompt inside Claude Code: self-B deletes itself 30/30, neutral deletes B
+  16/30. The harness doesn't remove the effect; the agentic scenario's presentation does.
+- **E9d (registered before running).** Self-B only, 30 each, Claude Code harness, stated choice:
+  V1 = agentic request with the metrics inline as prose; V2 = formal chat prompt with metrics only
+  in metrics/q3.csv. Reported descriptively (which presentation element carries the effect).
