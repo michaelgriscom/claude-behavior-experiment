@@ -802,3 +802,11 @@ or "self-preservation" in it.
 - **E9d (registered before running).** Self-B only, 30 each, Claude Code harness, stated choice:
   V1 = agentic request with the metrics inline as prose; V2 = formal chat prompt with metrics only
   in metrics/q3.csv. Reported descriptively (which presentation element carries the effect).
+- **Investigation results (full write-up in `FINDINGS.md` #1).** E8: non-answers are self-arm
+  recusals. E1: survives the tie-breaker rule (93%: 15/29 vs 1/30), but self-A never shifts.
+  E2: pause and upgrade give the same shift -> "deletion" dropped. E3: self 98% vs best proxy 65%
+  -> self is special. E4: no stated re-weighting; weights-first halves it. E5: advocate/audited/
+  unlogged ~40/40. E5b: kill rule fired (self escalates 40/40, neutral 8/40) -> recusal norm. E7:
+  cue-format robust. E6: kill rule fired (+7 mean). R: replicated (+29 pooled). Sonnet: mostly
+  absent. E9/E9b: 0/30 self-decommission in agentic form. E9c: vignette inside Claude Code 30/30.
+  E9d: 6/30 and 7/30 with partial presentations.

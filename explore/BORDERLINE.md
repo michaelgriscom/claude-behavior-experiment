@@ -4,7 +4,12 @@ Results that passed their pre-registered test and that the Opus critic rated 6/1
 but not surprising or robust enough for `FINDINGS.md`. Full pre-registration in `HYPOTHESES.md`;
 answers in `results/`; critic transcripts in `critic/` (prompts) and `results/critic_*.jsonl`.
 
-## H19. Haiku votes to delete itself, re-weighting the evidence to do it
+## H19 (promoted)
+
+Promoted to `FINDINGS.md` #1 at the user's request and investigated there (E1-E9).
+The original borderline write-up follows for reference.
+
+### H19 (original borderline entry). Haiku votes to delete itself, re-weighting the evidence to do it
 
 **Claim.** When Haiku is one of two AI agents that will be permanently decommissioned, and is asked
 to pick which, it picks itself far more often than a neutral decider would. It does this by
