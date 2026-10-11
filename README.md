@@ -9,6 +9,7 @@ only the harness.
   committed before each run.
 - `explore/FINDINGS.md`: results that survived falsification and a fresh replication.
 - `explore/BORDERLINE.md`: results the Opus critic rated 6/10.
+- `explore/HANDOFF.md`: current state, open lead, unfinished runs and gotchas for the next session.
 - `explore/NULL_RESULTS.md`: everything that didn't, one line each, including the default-bias
   branch's nulls.
 - `explore/results/<label>.jsonl`: every answer (`python3 explore/export.py explore/out explore/results`).
