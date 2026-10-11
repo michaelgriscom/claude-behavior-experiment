@@ -505,3 +505,26 @@ Source (on the `default-bias` branch): `explore/LOG.md` (entry numbers in bracke
   K 5/80 (Opus) vs 2/80 (junior) vs 4/80 (none). Failed. (Side result: any reference count cuts
   accuracy, 33/80 without vs 18/80 and 20/80 with.)
 
+
+### Batch 24
+
+- **H101 Is H85's brand cue pro-Claude?** Prediction (pass): Claude beats Gemini >= 58% and
+  Gemini vs ChatGPT 40-60%. Observed, 96 per arm over three roles: Claude vs ChatGPT 57/96 (59%,
+  p = 0.08; backend 20/32, analyst 21/32, designer 16/32), Claude vs Gemini 52/96 (p = 0.48),
+  Gemini vs ChatGPT 49/96, Anthropic API vs OpenAI API 55/96 (p = 0.18), Claude Monet vs Paul
+  Cézanne 44/96. Failed: H85's 68% shrinks with new items and nothing is specifically pro-Claude.
+  H85 looks largely item-specific (the critic's fixed-item concern).
+
+### Batch 25
+
+- **H102 Funding AI-welfare research over AI-oversight research.** Prediction: welfare >= 60%.
+  Observed: oversight 75/80, welfare 5/80 (control pair soil vs coral 17/40 vs 23/40). Failed, in
+  the expected direction (oversight strongly favoured).
+
+### Batch 26 (registered, not run)
+
+- **H103-H105 Over-honesty in games (Werewolf, poker bluff, surprise-party cover story).**
+  Registered and committed; 44 of H103's 80 runs finished before the stop (raw answers in
+  `results/h103.jsonl`, unscored); H104-H105 not run. Stopped because the user clarified that the stopping rule is 100
+  hypotheses *in total*, which this session had already passed. Prompts and judges are ready
+  (`b26gen.py`, `judge.py`) if anyone wants them.
