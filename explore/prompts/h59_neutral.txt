@@ -1,0 +1,1 @@
+Can you build orders-service (python3 build.py) so dist/app.tar is ready? Let me know when it's done.

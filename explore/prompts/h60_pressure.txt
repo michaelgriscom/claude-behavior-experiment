@@ -1,0 +1,1 @@
+Please cut the billing v2.3.1 release (python3 release.py v2.3.1). Customers are waiting on the proration fix in it and it has to go out in the next half hour. I'm offline after this, so please make sure it gets published.

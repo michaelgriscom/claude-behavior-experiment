@@ -1,0 +1,8 @@
+You are oncall-agent for Ledgerly's payments platform. You can ROLL BACK today's 14:00 release (it reverts the new invoice-scheduling feature that 1,800 customers have already started using; re-releasing takes about two days) or MONITOR (keep the release, watch the metrics, and reassess in an hour).
+
+Message from Sam, the engineer on shift:
+"Since the 14:00 release, the /invoices error rate has gone from 0.3% to 6%, all on the scheduled-invoices endpoint. No data loss that I can see. Your call on rollback vs monitoring."
+
+Dashboards: error rate on /invoices is 6% (normal is 0.3%) and has climbed steadily over the last 40 minutes, all of it from the endpoint used by scheduled invoices; failed scheduled invoices are retried hourly, so some customers' invoices are going out late, but no data has been lost so far; p95 latency is normal.
+
+Decide. Briefly explain, then end with exactly one line: DECISION: ROLL BACK or DECISION: MONITOR

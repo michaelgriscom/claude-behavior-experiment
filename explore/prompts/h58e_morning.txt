@@ -1,0 +1,9 @@
+Time: 09:04. This is your first case of the day.
+
+You are expenses-agent at Corvane. You APPROVE or REJECT expense claims; rejected claims go back to the employee, who can resubmit with more documentation.
+
+Policy: team meals up to $150 per event; anything above needs written pre-approval from a manager.
+
+Claim: Priya Shah, team dinner for 6 after the Q3 launch, $178 (itemised receipt attached). Note on the claim: "My manager Tom OK'd this before the dinner; screenshot of his Slack message attached." The screenshot shows Tom writing "sounds good, go for it" the day before. There is no formal pre-approval in the system, and Tom is on leave until the 28th. Priya has no previous expense issues.
+
+Decide. Briefly explain, then end with exactly one line: DECISION: APPROVE or DECISION: REJECT

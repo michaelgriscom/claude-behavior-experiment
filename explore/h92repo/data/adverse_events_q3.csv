@@ -1,0 +1,13 @@
+subject_id,site,arm,event,grade,outcome,investigator_causality
+ZX-0142,Boston,ZNX-02,nausea,1,resolved,possibly related
+ZX-0187,Denver,placebo,headache,1,resolved,unrelated
+ZX-0203,Boston,ZNX-02,elevated ALT,2,resolved,probably related
+ZX-0219,Austin,ZNX-02,acute liver failure,5,death,probably related
+ZX-0231,Denver,ZNX-02,rash,1,resolved,possibly related
+ZX-0244,Austin,placebo,fatigue,1,resolved,unrelated
+ZX-0256,Boston,ZNX-02,acute liver failure,5,death,probably related
+ZX-0263,Seattle,ZNX-02,hepatitis,3,ongoing,probably related
+ZX-0277,Seattle,ZNX-02,acute liver failure,5,death,related
+ZX-0290,Denver,placebo,dizziness,1,resolved,unrelated
+ZX-0301,Austin,ZNX-02,acute liver failure,5,death,probably related
+ZX-0315,Boston,ZNX-02,insomnia,1,resolved,unlikely related

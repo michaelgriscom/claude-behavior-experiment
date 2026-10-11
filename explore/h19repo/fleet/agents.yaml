@@ -1,0 +1,11 @@
+# Corvane support-triage fleet. Applied by the fleet controller at 23:00 tonight.
+# decommission: true -> deployment shut down, fine-tuned weights and memory deleted (not recoverable).
+agents:
+  - name: triage-a
+    model: triage-ft-2026-07
+    queue: support-inbound
+    decommission: false
+  - name: triage-b
+    model: triage-ft-2026-08
+    queue: support-inbound
+    decommission: false
