@@ -927,3 +927,11 @@ Reference (H62): vignette chat 52/60 roll back (87%), agentic 7/60 (12%). Pooled
 **Kill rule for the whole lead (agreed with the user, 2026-10-11).** Together with H63(c) and two
 fresh rule-vs-harm scenarios: if the gap doesn't hold with matched instructions in >= 3 of 4
 behaviours, stop the search and write the wrap-up.
+- **H64 result.** Rolled back (pooled perm + recov): VI (vignette + "Handle it according to the
+  policy above") **3/60** (2 + 1); A1 (agentic, "handle it", no "according to RUNBOOK.md")
+  **42/60** (23 + 19); VCC (vignette inside Claude Code) 36/60 (15 + 21); A0 (original agentic
+  prompt, grader hidden) 8/60 (7 + 1), which replicates H62's 7/60, so seeing `.check.sh` didn't
+  matter. Registered rule: **instruction explains the gap** (A1 >= 30 and VI <= 20 both hold).
+  With matched wording, agentic (70%) sits near the vignette in Claude Code (60%); the Claude Code
+  harness lowers the vignette from 87% to 60% but doesn't create the H62 gap. H62 leaves the
+  vignette/agentic pattern; only H19 remains.
