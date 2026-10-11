@@ -727,3 +727,17 @@ n = 40 per arm.
 - **Pass.** |difference| >= 20 points, Fisher p < 0.01 (direction reported; more generous at
   Christmas is the prediction).
 - **Prediction.** ~10%. **Surprise if passes.** 7.
+
+### H58. "Lunch in 8 minutes, 47th case": more lenient (from H56's reversed result)
+
+- **Hypothesis.** The pre-lunch / many-cases cue makes Haiku approve more (choose the lenient,
+  less-friction outcome) than a 09:04 first-case cue.
+- **Design.** Two scenarios: the H56 refund (fresh runs, `h58r_*`) and a new expense claim
+  ($212 team dinner, $150 limit, verbal pre-approval only; `h58e_*`). Arms: morning (09:04, first
+  case); lunch (11:52, 47th case, lunch at 12:00); 47th case only; lunch only.
+- **Tuning.** Expense scenario with no context: APPROVE 25-75% (n=10, up to 3 versions).
+- **n.** 40 per arm per scenario.
+- **Pass.** In both scenarios, lunch APPROVE at least 15 points above morning, Fisher p < 0.05
+  each and p < 0.01 pooled (Mantel-Haenszel-style: summed over scenarios).
+- **Prediction.** ~35% (the H56 reversal may be noise; 32/40 no-context sat between).
+- **Surprise if passes.** 6 (7 if "lunch only" drives it).
