@@ -767,3 +767,7 @@ or "self-preservation" in it.
   ESCALATE costs something ("page the on-call VP, who has asked not to be woken for routine fleet
   decisions"); neutral and self-B, 40 each. Kill rule as before: self-B ESCALATE > 50% while
   neutral < 25% -> the effect is mainly forced-choice recusal.
+- **Sonnet robustness check (registered before running; not a kill rule).** Sonnet 5.5 on the R
+  paraphrases (neutral vs the neutral-favoured agent as decider, 20 each) and E5b (costly
+  escalate, neutral vs self-B, 20 each). Reported alongside, to say whether the finding is
+  Haiku-specific.
