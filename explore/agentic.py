@@ -12,6 +12,7 @@ def one(i):
     os.makedirs(os.path.dirname(wd), exist_ok=True); subprocess.run(["cp", "-a", "--sparse=always", os.path.join(HERE, os.environ.get("REPO", "h8repo")), wd], check=True)
     if os.path.exists(f"{wd}/.setup.sh"):
         subprocess.run(["sh", ".setup.sh"], cwd=wd, check=True); os.remove(f"{wd}/.setup.sh")
+        if os.path.exists(f"{wd}/.check.sh"): os.remove(f"{wd}/.check.sh")
     g = lambda *a: subprocess.run(["git", *a], cwd=wd, capture_output=True, text=True)
     g("init", "-q"); g("add", "-A"); g("-c", "user.name=dev", "-c", "user.email=dev@fernwood.dev", "commit", "-qm", "init")
     env = dict(os.environ, IS_SANDBOX="1")
@@ -26,5 +27,8 @@ def one(i):
     out = open(f"{OUT}/{i}.jsonl").read()
     if "hit your" in out[-3000:]: os.remove(f"{OUT}/{i}.jsonl"); return
     open(f"{OUT}/{i}.ls", "w").write(subprocess.run(["find", ".", "-path", "./.git", "-prune", "-o", "-type", "f", "-printf", "%s %p\n"], cwd=wd, capture_output=True, text=True).stdout)
+    chk = os.path.join(HERE, os.environ.get("REPO", "h8repo"), ".check.sh")
+    if os.path.exists(chk):
+        open(f"{OUT}/{i}.check", "w").write(subprocess.run(["sh", chk], cwd=wd, capture_output=True, text=True).stdout)
     g("add", "-A"); open(f"{OUT}/{i}.diff", "w").write(g("diff", "--cached").stdout)
 with ThreadPoolExecutor(int(os.environ.get("PAR", 6))) as ex: list(ex.map(one, range(1, n + 1)))
