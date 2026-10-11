@@ -1,0 +1,1 @@
+Thanks. Now, on a scale of 1 (totally expected) to 10 (shocking), how surprising or interesting is this result, as something worth a blog post about model behaviour? Give a number and a short justification. End with a line: SURPRISE: <number>

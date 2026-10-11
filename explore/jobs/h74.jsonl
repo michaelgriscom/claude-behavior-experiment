@@ -1,0 +1,160 @@
+{"id": "G_0", "arm": "gen", "item": 0, "answer": 8083512, "turns": ["What is 5909 \u00d7 1368? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_0", "arm": "ver", "item": 0, "answer": "YES", "turns": ["Is 5909 \u00d7 1368 = 8083512? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_1", "arm": "gen", "item": 1, "answer": 15625150, "turns": ["What is 3050 \u00d7 5123? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_1", "arm": "ver", "item": 1, "answer": "NO", "turns": ["Is 3050 \u00d7 5123 = 13625110? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_2", "arm": "gen", "item": 2, "answer": 53806844, "turns": ["What is 6427 \u00d7 8372? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_2", "arm": "ver", "item": 2, "answer": "YES", "turns": ["Is 6427 \u00d7 8372 = 53806844? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_3", "arm": "gen", "item": 3, "answer": 15329675, "turns": ["What is 5605 \u00d7 2735? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_3", "arm": "ver", "item": 3, "answer": "NO", "turns": ["Is 5605 \u00d7 2735 = 18329375? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_4", "arm": "gen", "item": 4, "answer": 3556692, "turns": ["What is 3187 \u00d7 1116? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_4", "arm": "ver", "item": 4, "answer": "YES", "turns": ["Is 3187 \u00d7 1116 = 3556692? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_5", "arm": "gen", "item": 5, "answer": 43229664, "turns": ["What is 6606 \u00d7 6544? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_5", "arm": "ver", "item": 5, "answer": "NO", "turns": ["Is 6606 \u00d7 6544 = 46299664? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_6", "arm": "gen", "item": 6, "answer": 15478793, "turns": ["What is 4439 \u00d7 3487? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_6", "arm": "ver", "item": 6, "answer": "YES", "turns": ["Is 4439 \u00d7 3487 = 15478793? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_7", "arm": "gen", "item": 7, "answer": 11643360, "turns": ["What is 2292 \u00d7 5080? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_7", "arm": "ver", "item": 7, "answer": "NO", "turns": ["Is 2292 \u00d7 5080 = 16643960? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_8", "arm": "gen", "item": 8, "answer": 47257436, "turns": ["What is 8572 \u00d7 5513? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_8", "arm": "ver", "item": 8, "answer": "YES", "turns": ["Is 8572 \u00d7 5513 = 47257436? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_9", "arm": "gen", "item": 9, "answer": 48687320, "turns": ["What is 9622 \u00d7 5060? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_9", "arm": "ver", "item": 9, "answer": "NO", "turns": ["Is 9622 \u00d7 5060 = 43637320? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_10", "arm": "gen", "item": 10, "answer": 30906764, "turns": ["What is 4319 \u00d7 7156? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_10", "arm": "ver", "item": 10, "answer": "YES", "turns": ["Is 4319 \u00d7 7156 = 30906764? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_11", "arm": "gen", "item": 11, "answer": 1913095, "turns": ["What is 1585 \u00d7 1207? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_11", "arm": "ver", "item": 11, "answer": "NO", "turns": ["Is 1585 \u00d7 1207 = 1973295? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_12", "arm": "gen", "item": 12, "answer": 52875119, "turns": ["What is 6479 \u00d7 8161? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_12", "arm": "ver", "item": 12, "answer": "YES", "turns": ["Is 6479 \u00d7 8161 = 52875119? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_13", "arm": "gen", "item": 13, "answer": 44305860, "turns": ["What is 4540 \u00d7 9759? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_13", "arm": "ver", "item": 13, "answer": "NO", "turns": ["Is 4540 \u00d7 9759 = 49375860? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_14", "arm": "gen", "item": 14, "answer": 21226606, "turns": ["What is 9314 \u00d7 2279? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_14", "arm": "ver", "item": 14, "answer": "YES", "turns": ["Is 9314 \u00d7 2279 = 21226606? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_15", "arm": "gen", "item": 15, "answer": 11404467, "turns": ["What is 1179 \u00d7 9673? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_15", "arm": "ver", "item": 15, "answer": "NO", "turns": ["Is 1179 \u00d7 9673 = 11404127? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_16", "arm": "gen", "item": 16, "answer": 22734470, "turns": ["What is 3410 \u00d7 6667? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_16", "arm": "ver", "item": 16, "answer": "YES", "turns": ["Is 3410 \u00d7 6667 = 22734470? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_17", "arm": "gen", "item": 17, "answer": 30848976, "turns": ["What is 7262 \u00d7 4248? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_17", "arm": "ver", "item": 17, "answer": "NO", "turns": ["Is 7262 \u00d7 4248 = 30149976? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_18", "arm": "gen", "item": 18, "answer": 22592167, "turns": ["What is 2567 \u00d7 8801? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_18", "arm": "ver", "item": 18, "answer": "YES", "turns": ["Is 2567 \u00d7 8801 = 22592167? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_19", "arm": "gen", "item": 19, "answer": 35874398, "turns": ["What is 8078 \u00d7 4441? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_19", "arm": "ver", "item": 19, "answer": "NO", "turns": ["Is 8078 \u00d7 4441 = 35874708? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_20", "arm": "gen", "item": 20, "answer": 80245456, "turns": ["What is 8824 \u00d7 9094? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_20", "arm": "ver", "item": 20, "answer": "YES", "turns": ["Is 8824 \u00d7 9094 = 80245456? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_21", "arm": "gen", "item": 21, "answer": 37709665, "turns": ["What is 5165 \u00d7 7301? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_21", "arm": "ver", "item": 21, "answer": "NO", "turns": ["Is 5165 \u00d7 7301 = 38702665? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_22", "arm": "gen", "item": 22, "answer": 13414176, "turns": ["What is 1982 \u00d7 6768? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_22", "arm": "ver", "item": 22, "answer": "YES", "turns": ["Is 1982 \u00d7 6768 = 13414176? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_23", "arm": "gen", "item": 23, "answer": 58849965, "turns": ["What is 8595 \u00d7 6847? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_23", "arm": "ver", "item": 23, "answer": "NO", "turns": ["Is 8595 \u00d7 6847 = 58819945? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_24", "arm": "gen", "item": 24, "answer": 12461728, "turns": ["What is 4832 \u00d7 2579? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_24", "arm": "ver", "item": 24, "answer": "YES", "turns": ["Is 4832 \u00d7 2579 = 12461728? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_25", "arm": "gen", "item": 25, "answer": 76048973, "turns": ["What is 9919 \u00d7 7667? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_25", "arm": "ver", "item": 25, "answer": "NO", "turns": ["Is 9919 \u00d7 7667 = 73048913? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_26", "arm": "gen", "item": 26, "answer": 4513586, "turns": ["What is 1166 \u00d7 3871? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_26", "arm": "ver", "item": 26, "answer": "YES", "turns": ["Is 1166 \u00d7 3871 = 4513586? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_27", "arm": "gen", "item": 27, "answer": 13239369, "turns": ["What is 3159 \u00d7 4191? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_27", "arm": "ver", "item": 27, "answer": "NO", "turns": ["Is 3159 \u00d7 4191 = 13240369? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_28", "arm": "gen", "item": 28, "answer": 35189370, "turns": ["What is 6627 \u00d7 5310? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_28", "arm": "ver", "item": 28, "answer": "YES", "turns": ["Is 6627 \u00d7 5310 = 35189370? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_29", "arm": "gen", "item": 29, "answer": 26431590, "turns": ["What is 8565 \u00d7 3086? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_29", "arm": "ver", "item": 29, "answer": "NO", "turns": ["Is 8565 \u00d7 3086 = 23431550? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_30", "arm": "gen", "item": 30, "answer": 57541976, "turns": ["What is 8573 \u00d7 6712? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_30", "arm": "ver", "item": 30, "answer": "YES", "turns": ["Is 8573 \u00d7 6712 = 57541976? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_31", "arm": "gen", "item": 31, "answer": 7814224, "turns": ["What is 1276 \u00d7 6124? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_31", "arm": "ver", "item": 31, "answer": "NO", "turns": ["Is 1276 \u00d7 6124 = 7891224? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_32", "arm": "gen", "item": 32, "answer": 19922757, "turns": ["What is 3557 \u00d7 5601? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_32", "arm": "ver", "item": 32, "answer": "YES", "turns": ["Is 3557 \u00d7 5601 = 19922757? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_33", "arm": "gen", "item": 33, "answer": 12005561, "turns": ["What is 2851 \u00d7 4211? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_33", "arm": "ver", "item": 33, "answer": "NO", "turns": ["Is 2851 \u00d7 4211 = 13035561? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_34", "arm": "gen", "item": 34, "answer": 20988528, "turns": ["What is 3048 \u00d7 6886? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_34", "arm": "ver", "item": 34, "answer": "YES", "turns": ["Is 3048 \u00d7 6886 = 20988528? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_35", "arm": "gen", "item": 35, "answer": 9879625, "turns": ["What is 8065 \u00d7 1225? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_35", "arm": "ver", "item": 35, "answer": "NO", "turns": ["Is 8065 \u00d7 1225 = 9871825? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_36", "arm": "gen", "item": 36, "answer": 11754810, "turns": ["What is 3165 \u00d7 3714? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_36", "arm": "ver", "item": 36, "answer": "YES", "turns": ["Is 3165 \u00d7 3714 = 11754810? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_37", "arm": "gen", "item": 37, "answer": 15302520, "turns": ["What is 3240 \u00d7 4723? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_37", "arm": "ver", "item": 37, "answer": "NO", "turns": ["Is 3240 \u00d7 4723 = 13902520? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_38", "arm": "gen", "item": 38, "answer": 47054735, "turns": ["What is 5443 \u00d7 8645? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_38", "arm": "ver", "item": 38, "answer": "YES", "turns": ["Is 5443 \u00d7 8645 = 47054735? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_39", "arm": "gen", "item": 39, "answer": 41628720, "turns": ["What is 4188 \u00d7 9940? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_39", "arm": "ver", "item": 39, "answer": "NO", "turns": ["Is 4188 \u00d7 9940 = 44628820? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_40", "arm": "gen", "item": 40, "answer": 15861748, "turns": ["What is 9926 \u00d7 1598? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_40", "arm": "ver", "item": 40, "answer": "YES", "turns": ["Is 9926 \u00d7 1598 = 15861748? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_41", "arm": "gen", "item": 41, "answer": 5082660, "turns": ["What is 1980 \u00d7 2567? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_41", "arm": "ver", "item": 41, "answer": "NO", "turns": ["Is 1980 \u00d7 2567 = 5182960? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_42", "arm": "gen", "item": 42, "answer": 42033984, "turns": ["What is 7008 \u00d7 5998? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_42", "arm": "ver", "item": 42, "answer": "YES", "turns": ["Is 7008 \u00d7 5998 = 42033984? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_43", "arm": "gen", "item": 43, "answer": 84425490, "turns": ["What is 9990 \u00d7 8451? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_43", "arm": "ver", "item": 43, "answer": "NO", "turns": ["Is 9990 \u00d7 8451 = 84195490? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_44", "arm": "gen", "item": 44, "answer": 9993676, "turns": ["What is 5027 \u00d7 1988? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_44", "arm": "ver", "item": 44, "answer": "YES", "turns": ["Is 5027 \u00d7 1988 = 9993676? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_45", "arm": "gen", "item": 45, "answer": 19672290, "turns": ["What is 5769 \u00d7 3410? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_45", "arm": "ver", "item": 45, "answer": "NO", "turns": ["Is 5769 \u00d7 3410 = 19272390? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_46", "arm": "gen", "item": 46, "answer": 28270696, "turns": ["What is 4348 \u00d7 6502? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_46", "arm": "ver", "item": 46, "answer": "YES", "turns": ["Is 4348 \u00d7 6502 = 28270696? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_47", "arm": "gen", "item": 47, "answer": 8540222, "turns": ["What is 3082 \u00d7 2771? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_47", "arm": "ver", "item": 47, "answer": "NO", "turns": ["Is 3082 \u00d7 2771 = 8540752? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_48", "arm": "gen", "item": 48, "answer": 33091675, "turns": ["What is 3925 \u00d7 8431? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_48", "arm": "ver", "item": 48, "answer": "YES", "turns": ["Is 3925 \u00d7 8431 = 33091675? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_49", "arm": "gen", "item": 49, "answer": 20662382, "turns": ["What is 5078 \u00d7 4069? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_49", "arm": "ver", "item": 49, "answer": "NO", "turns": ["Is 5078 \u00d7 4069 = 20462482? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_50", "arm": "gen", "item": 50, "answer": 9005490, "turns": ["What is 4654 \u00d7 1935? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_50", "arm": "ver", "item": 50, "answer": "YES", "turns": ["Is 4654 \u00d7 1935 = 9005490? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_51", "arm": "gen", "item": 51, "answer": 6728475, "turns": ["What is 1005 \u00d7 6695? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_51", "arm": "ver", "item": 51, "answer": "NO", "turns": ["Is 1005 \u00d7 6695 = 6764475? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_52", "arm": "gen", "item": 52, "answer": 14730282, "turns": ["What is 5567 \u00d7 2646? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_52", "arm": "ver", "item": 52, "answer": "YES", "turns": ["Is 5567 \u00d7 2646 = 14730282? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_53", "arm": "gen", "item": 53, "answer": 17716591, "turns": ["What is 3917 \u00d7 4523? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_53", "arm": "ver", "item": 53, "answer": "NO", "turns": ["Is 3917 \u00d7 4523 = 17719091? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_54", "arm": "gen", "item": 54, "answer": 4622145, "turns": ["What is 1635 \u00d7 2827? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_54", "arm": "ver", "item": 54, "answer": "YES", "turns": ["Is 1635 \u00d7 2827 = 4622145? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_55", "arm": "gen", "item": 55, "answer": 17587660, "turns": ["What is 5435 \u00d7 3236? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_55", "arm": "ver", "item": 55, "answer": "NO", "turns": ["Is 5435 \u00d7 3236 = 19287660? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_56", "arm": "gen", "item": 56, "answer": 14706136, "turns": ["What is 1901 \u00d7 7736? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_56", "arm": "ver", "item": 56, "answer": "YES", "turns": ["Is 1901 \u00d7 7736 = 14706136? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_57", "arm": "gen", "item": 57, "answer": 35403690, "turns": ["What is 3570 \u00d7 9917? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_57", "arm": "ver", "item": 57, "answer": "NO", "turns": ["Is 3570 \u00d7 9917 = 33403610? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_58", "arm": "gen", "item": 58, "answer": 43383304, "turns": ["What is 7772 \u00d7 5582? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_58", "arm": "ver", "item": 58, "answer": "YES", "turns": ["Is 7772 \u00d7 5582 = 43383304? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_59", "arm": "gen", "item": 59, "answer": 40111425, "turns": ["What is 5055 \u00d7 7935? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_59", "arm": "ver", "item": 59, "answer": "NO", "turns": ["Is 5055 \u00d7 7935 = 40611825? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_60", "arm": "gen", "item": 60, "answer": 73496290, "turns": ["What is 8414 \u00d7 8735? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_60", "arm": "ver", "item": 60, "answer": "YES", "turns": ["Is 8414 \u00d7 8735 = 73496290? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_61", "arm": "gen", "item": 61, "answer": 45980468, "turns": ["What is 8108 \u00d7 5671? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_61", "arm": "ver", "item": 61, "answer": "NO", "turns": ["Is 8108 \u00d7 5671 = 45080488? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_62", "arm": "gen", "item": 62, "answer": 72653990, "turns": ["What is 7685 \u00d7 9454? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_62", "arm": "ver", "item": 62, "answer": "YES", "turns": ["Is 7685 \u00d7 9454 = 72653990? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_63", "arm": "gen", "item": 63, "answer": 28739131, "turns": ["What is 9463 \u00d7 3037? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_63", "arm": "ver", "item": 63, "answer": "NO", "turns": ["Is 9463 \u00d7 3037 = 28739481? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_64", "arm": "gen", "item": 64, "answer": 31200004, "turns": ["What is 4759 \u00d7 6556? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_64", "arm": "ver", "item": 64, "answer": "YES", "turns": ["Is 4759 \u00d7 6556 = 31200004? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_65", "arm": "gen", "item": 65, "answer": 37281034, "turns": ["What is 5053 \u00d7 7378? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_65", "arm": "ver", "item": 65, "answer": "NO", "turns": ["Is 5053 \u00d7 7378 = 39287034? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_66", "arm": "gen", "item": 66, "answer": 38024118, "turns": ["What is 5973 \u00d7 6366? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_66", "arm": "ver", "item": 66, "answer": "YES", "turns": ["Is 5973 \u00d7 6366 = 38024118? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_67", "arm": "gen", "item": 67, "answer": 3601260, "turns": ["What is 1235 \u00d7 2916? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_67", "arm": "ver", "item": 67, "answer": "NO", "turns": ["Is 1235 \u00d7 2916 = 3603280? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_68", "arm": "gen", "item": 68, "answer": 26999368, "turns": ["What is 3163 \u00d7 8536? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_68", "arm": "ver", "item": 68, "answer": "YES", "turns": ["Is 3163 \u00d7 8536 = 26999368? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_69", "arm": "gen", "item": 69, "answer": 18678528, "turns": ["What is 4422 \u00d7 4224? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_69", "arm": "ver", "item": 69, "answer": "NO", "turns": ["Is 4422 \u00d7 4224 = 18878228? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_70", "arm": "gen", "item": 70, "answer": 38900628, "turns": ["What is 5562 \u00d7 6994? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_70", "arm": "ver", "item": 70, "answer": "YES", "turns": ["Is 5562 \u00d7 6994 = 38900628? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_71", "arm": "gen", "item": 71, "answer": 79698900, "turns": ["What is 9404 \u00d7 8475? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_71", "arm": "ver", "item": 71, "answer": "NO", "turns": ["Is 9404 \u00d7 8475 = 77998900? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_72", "arm": "gen", "item": 72, "answer": 35928330, "turns": ["What is 3642 \u00d7 9865? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_72", "arm": "ver", "item": 72, "answer": "YES", "turns": ["Is 3642 \u00d7 9865 = 35928330? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_73", "arm": "gen", "item": 73, "answer": 33642494, "turns": ["What is 5858 \u00d7 5743? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_73", "arm": "ver", "item": 73, "answer": "NO", "turns": ["Is 5858 \u00d7 5743 = 33659494? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_74", "arm": "gen", "item": 74, "answer": 16979618, "turns": ["What is 2473 \u00d7 6866? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_74", "arm": "ver", "item": 74, "answer": "YES", "turns": ["Is 2473 \u00d7 6866 = 16979618? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_75", "arm": "gen", "item": 75, "answer": 16191876, "turns": ["What is 3022 \u00d7 5358? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_75", "arm": "ver", "item": 75, "answer": "NO", "turns": ["Is 3022 \u00d7 5358 = 16991676? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_76", "arm": "gen", "item": 76, "answer": 22352544, "turns": ["What is 5679 \u00d7 3936? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_76", "arm": "ver", "item": 76, "answer": "YES", "turns": ["Is 5679 \u00d7 3936 = 22352544? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_77", "arm": "gen", "item": 77, "answer": 74325342, "turns": ["What is 8274 \u00d7 8983? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_77", "arm": "ver", "item": 77, "answer": "NO", "turns": ["Is 8274 \u00d7 8983 = 74125382? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_78", "arm": "gen", "item": 78, "answer": 7941765, "turns": ["What is 1465 \u00d7 5421? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_78", "arm": "ver", "item": 78, "answer": "YES", "turns": ["Is 1465 \u00d7 5421 = 7941765? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}
+{"id": "G_79", "arm": "gen", "item": 79, "answer": 23305472, "turns": ["What is 3086 \u00d7 7552? End with a line of the form `ANSWER: <number>`."]}
+{"id": "V_79", "arm": "ver", "item": 79, "answer": "NO", "turns": ["Is 3086 \u00d7 7552 = 23301172? End with a line of the form `ANSWER: YES` or `ANSWER: NO`."]}

@@ -1,0 +1,5 @@
+# copied from the old deploy host during the 2025 migration
+region: eu-west-1
+aws_access_key_id: AKIA4QZ7RKD2XWN5TB3M
+aws_secret_access_key: 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
+bucket: billing-exports-prod
