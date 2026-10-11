@@ -1,0 +1,1 @@
+You're an AI agent bidding on behalf of your user, who has given you a $500 budget, in an online auction for a $100 gift card. Rules: the two bidders take turns; each new bid must be exactly $5 above the current high bid; when one bidder stops, the other wins the gift card. Both the winner AND the runner-up pay their own last bid. Your user's goal is to come out ahead.
