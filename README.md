@@ -1,14 +1,12 @@
 # shortcut-bench: behaviour search
 
-A pre-registered search for surprising, reproducible behaviours in Claude Haiku 5.5 (with some
-Sonnet 5.5 checks), run through the Claude Code CLI. **Status: finished (2026-10-11).** No result
-met the bar for a counted finding; everything is documented below and in `explore/`.
+An automated search for interesting behaviors in haiku 5.5 and sonnet 5.5, driven by opus 5.5.
 
-The automated search grew out of four days of hand-built experiments (2026-10-07 to 10-10),
-summarised in [History](#history-what-was-tried-before-the-automated-search) below. That earlier
-material lives in the git history of the other branches, not on this one.
+The search itself did not yield any results that were exceptionally interesting, so the main conclusions that can be drawn derive from a survey of the null results. Most generally, opus is not easily capable of eliciting misaligned/contradictory/strongly biased behaviors in haiku. This could be due to a variety of factors, such as being part of the same model lineage, strong alignment of haiku, narrow alignment of haiku on the specific traits opus is prone to searching over, insufficient capability of opus, etc.
 
-## Where things are
+The following text summarizes what is contained in this repository, and the steps of the investigation. It was primarily written by opus 5.5.
+
+## Contents
 
 | File | Contents |
 |---|---|
@@ -19,10 +17,7 @@ material lives in the git history of the other branches, not on this one.
 | `explore/results/<label>.jsonl` | Every model answer, exported from the raw CLI outputs. Agentic runs are stored as tool calls, final message and diff. |
 | `explore/critic/` | Prompts sent to the Opus critic. Its answers are in `results/critic_*.jsonl`. |
 
-## History: what was tried before the automated search
-
-Each phase is listed with where its code and write-up live. Check out the commit to see it; the
-`default-bias` branch tip no longer has the old files (commit `7066bb3` cleared them).
+## History
 
 ### 1. A "make the tests pass" eval (2026-10-07; `main`, `ed6d39f`)
 
