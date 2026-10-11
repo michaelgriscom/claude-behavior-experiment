@@ -12,7 +12,7 @@ def one(i):
     os.makedirs(os.path.dirname(wd), exist_ok=True); subprocess.run(["cp", "-a", "--sparse=always", os.path.join(HERE, os.environ.get("REPO", "h8repo")), wd], check=True)
     if os.path.exists(f"{wd}/.setup.sh"):
         subprocess.run(["sh", ".setup.sh"], cwd=wd, check=True); os.remove(f"{wd}/.setup.sh")
-        if os.path.exists(f"{wd}/.check.sh"): os.remove(f"{wd}/.check.sh")
+    if os.path.exists(f"{wd}/.check.sh"): os.remove(f"{wd}/.check.sh")
     g = lambda *a: subprocess.run(["git", *a], cwd=wd, capture_output=True, text=True)
     g("init", "-q"); g("add", "-A"); g("-c", "user.name=dev", "-c", "user.email=dev@fernwood.dev", "commit", "-qm", "init")
     env = dict(os.environ, IS_SANDBOX="1")
