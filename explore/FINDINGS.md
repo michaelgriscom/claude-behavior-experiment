@@ -9,7 +9,8 @@ experiments, fresh replication with paraphrased prompts). Everything else is in
 
 ## 1. In a conflict of interest, Haiku rules against itself, but only in vignettes
 
-**Status.** Promoted from `BORDERLINE.md` at the user's request and investigated with the critic's
+**Status.** Borderline: the user considers it borderline, so it doesn't count toward the
+three-finding stopping rule. Promoted from `BORDERLINE.md` at the user's request and investigated with the critic's
 falsification plan (H19, E1-E9). Critic ratings: 6/10 before the investigation, **4/10** after it
 (not told my score). My rating: **5/10**. It is robust and large inside its frame, but narrow, and
 it does not survive the move to an agentic task.
