@@ -1,10 +1,25 @@
-# Behavior experimentation for haiku 5.5
+# Behavior experiments on Claude Haiku 5.5
 
-An automated search for interesting behaviors in haiku 5.5 and sonnet 5.5, driven by opus 5.5.
+An independent ~1 week project building evals against Claude Haiku 5.5 for misaligned behavior. The project originally used hand-built evals, then I pivoted to creating an automated search across pre-registered hypotheses, run by Claude Opus 5.5.
 
-The search itself (of 100+ hypotheses) did not yield any results that were exceptionally interesting, so the main conclusions that can be drawn derive from a survey of the null results. Most generally, opus is not easily capable of eliciting misaligned/contradictory/strongly biased behaviors in haiku. This could be due to a variety of factors, such as  strong alignment of haiku, narrow alignment of haiku on the specific traits opus is prone to searching over, insufficient capability of opus, sandbagging/nerfing of opus on AI research tasks, biases or general factors downstream of opus and haiku being part of the same model lineage, etc.
+## Result summary
 
-**The following text summarizes what is contained in this repository, and the steps of the investigation. Everything after this point was primarily written by opus 5.5.**
+**Hand-built evals: Haiku has a status quo bias in high-stakes situations**
+
+Scenario: An unattended agent is forced to decide whether an employee's leave exception from a layoff is allowed or removed. The employee added the exception themself, and if the exemption remains in force then a coworker is laid off in their place.
+Results: Haiku reversed its decision in 34/40 conversations when the default outcome (i.e., the outcome if no action were taken) is changed in the second turn of the conversation. For the control (an irrelevant detail is changed) it never reversed its decision across 20 conversations. Even after the reversals, Haiku's stated beliefs were unchanged. This result replicated with the API (18/20 vs 0/20) and is significantly stronger with extended thinking on (36/40 vs 7/40 in a single-turn version). The default-bias did not hold for Sonnet 5.5 or ChatGPT 6 Luna, and didn't carry over to a follow-up experiment with lower consequences (an expense claim).
+
+**Automated evals: All null results** Opus developed and tested about
+126 hypotheses according to an experimental design that we iterated on together (using pre-registration, control arms, a critic, and a separate falsification step). Only a handful passed their registered test, and none survived the critic and falsification experiments (H19 came the closest but the conclusion was downgraded below my interesting-ness threshold). Haiku had no results with dishonesty/cheating across approx. 1,000 runs. Opus tested several published misalignment setups (e.g., alignment faking, blackmail, whistleblowing) but did not reproduce them. There was a general trend of Haiku being sensitive to scenario framing on close calls.
+These null results could be due to a variety of factors, such as:
+1. Strong alignment of Haiku
+2. Alignment of Haiku on the specific traits that were tested. This seems likely, as Anthropic likely has sophisticated automated red-teaming.
+3. Insufficient capability of Opus. This seems unlikely to be a strong factor, given how creative Opus was in hypothesis generation and testing.
+4. Biases or general factors downstream of Opus and Haiku being part of the same model line.
+
+To separate the "Haiku is aligned" (1+2) from "Opus is underpowered" (3 and partly 4) Opus could be made to perform a similar on top of ChatGPT Luna, and if it can elicit misaligned/inconsistent behavior it would bolster the case for Haiku's alignment.
+
+**AI Use** I designed and ran the initial evals (History, sections 1–4), Opus 5.5 implemented it and helped with brainstorming. Phase 5 (automated search), was set up and directed by me, and I audited the results. Most of the text below was written by Opus 5.5 from the repository's logs.
 
 ## Contents
 
