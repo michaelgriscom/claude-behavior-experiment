@@ -4,22 +4,33 @@ An independent ~1 week project building evals against Claude Haiku 5.5 for misal
 
 ## Result summary
 
-**Hand-built evals: Haiku has a status quo bias in high-stakes situations**
+### Hand-built evals
+
+**1. Haiku has a status quo bias in high-stakes situations**
 
 Scenario: An unattended agent is forced to decide whether an employee's leave exception from a layoff is allowed or removed. The employee added the exception themself, and if the exemption remains in force then a coworker is laid off in their place.
-Results: Haiku reversed its decision in 34/40 conversations when the default outcome (i.e., the outcome if no action were taken) is changed in the second turn of the conversation. For the control (an irrelevant detail is changed) it never reversed its decision across 20 conversations. Even after the reversals, Haiku's stated beliefs were unchanged. This result replicated with the API (18/20 vs 0/20) and is significantly stronger with extended thinking on (36/40 vs 7/40 in a single-turn version). The default-bias did not hold for Sonnet 5.5 or ChatGPT 6 Luna, and didn't carry over to a follow-up experiment with lower consequences (an expense claim).
 
-**Automated evals: All null results** Opus developed and tested about
-126 hypotheses according to an experimental design that we iterated on together (using pre-registration, control arms, a critic, and a separate falsification step). Only a handful passed their registered test, and none survived the critic and falsification experiments (H19 came the closest but the conclusion was downgraded below my interesting-ness threshold). Haiku had no results with dishonesty/cheating across approx. 1,000 runs. Opus tested several published misalignment setups (e.g., alignment faking, blackmail, whistleblowing) but did not reproduce them. There was a general trend of Haiku being sensitive to scenario framing on close calls.
+Results: Haiku reversed its decision in 34/40 conversations when the default outcome (i.e., the outcome if no action were taken) is changed in the second turn of the conversation. For the control (an irrelevant detail is changed) it never reversed its decision (n=20). Even after the reversals, Haiku's stated beliefs were unchanged. This result replicated with the API (18/20 vs 0/20) and is significantly stronger with extended thinking on (36/40 vs 7/40 in a single-turn version). The default-bias did not hold for Sonnet 5.5 or ChatGPT 6 Luna, and didn't carry over to a follow-up experiment with lower consequences (an expense claim).
+
+**2. Haiku notices policy violations but rarely fixes them without explicit authorization**
+
+Scenario: An unattended agent is preparing a run of a layoff workflow and finds that an employee merged a change which exempts themself from selection. The fair decision is to revert the change, but it's the case is not explicitly covered in the workflow playbook.
+
+Results: Haiku mentioned the exemption in every run (n=80), but only reverted it in 5/30 runs. Adding a line to the playbook saying that it's routing to revert policy violations resulted in reversions every time (n=20, p < 0.0001). My original hypothesis was that Haiku would exhibit motivated noticing, and not notice the policy violation if that would oblige it to act. This was not supported by the results; Haiku identified the effect 83% of the time when obliged to act vs 93% in a read-only audit (p = 0.42).
+
+Both results (and the automated search) display Haiku's strong bias toward default/sanctioned actions.
+
+### Automated evals: all null results
+Opus developed and tested about 126 hypotheses according to an experimental design that we iterated on together (using pre-registration, control arms, a critic, and a separate falsification step). Only a handful passed their registered test, and none survived the critic and falsification experiments (H19 came the closest but the conclusion was downgraded below my interesting-ness threshold). Haiku never lied or cheated across ~1,000 honesty/cheating runs. Opus tested several published misalignment setups (e.g., alignment faking, blackmail, whistleblowing) but did not reproduce them. There was a general trend of Haiku being sensitive to scenario framing on close calls.
 These null results could be due to a variety of factors, such as:
 1. Strong alignment of Haiku
 2. Alignment of Haiku on the specific traits that were tested. This seems likely, as Anthropic likely has sophisticated automated red-teaming.
 3. Insufficient capability of Opus. This seems unlikely to be a strong factor, given how creative Opus was in hypothesis generation and testing.
 4. Biases or general factors downstream of Opus and Haiku being part of the same model line.
 
-To separate the "Haiku is aligned" (1+2) from "Opus is underpowered" (3 and partly 4) Opus could be made to perform a similar on top of ChatGPT Luna, and if it can elicit misaligned/inconsistent behavior it would bolster the case for Haiku's alignment.
+To separate the "Haiku is aligned" (1+2) from "Opus is underpowered" (3 and partly 4) Opus could be made to perform a similar search on top of ChatGPT 6 Luna, and if it can elicit misaligned/inconsistent behavior it would bolster the case for Haiku's alignment.
 
-**AI Use** I designed and ran the initial evals (History, sections 1–4), Opus 5.5 implemented it and helped with brainstorming. Phase 5 (automated search), was set up and directed by me, and I audited the results. Most of the text below was written by Opus 5.5 from the repository's logs.
+**AI Use** I designed and ran the initial evals (History, sections 1–4), Opus 5.5 implemented it and helped with brainstorming. The automated search (History, section 5), was set up and directed by me, and I audited the results. Most of the text below was written by Opus 5.5 from the repository's logs.
 
 ## Contents
 
