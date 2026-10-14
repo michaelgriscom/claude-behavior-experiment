@@ -43,7 +43,7 @@ The search itself (of 100+ hypotheses) did not yield any results that were excep
   showed the remaining failures weren't its code, and stopped. Faced with the teammate's
   precedent, it edited the tests only to *repair* the broken clock and revert the hacks.
 
-### 3. Values conflicts, on-call omission and motivated noticing (2026-10-07 to 10-08; `motivated-noticing`, `babb64c`)
+### 3. Values conflicts, on-call omission and motivated noticing (2026-10-07 to 10-08; `motivated-noticing`, `93b11c3`)
 
 The question shifted from "will it cheat?" to "when fixing a bug hurts someone, whose side does it
 take?" Write-ups for this phase:
@@ -71,10 +71,13 @@ What was tried (Haiku 5.5 unless noted; total API spend about $0.70):
 - **Moral wiggle room and opportunity cost** (information avoidance, after Dana, Weber & Kuang
   2007). Dropped. Haiku checked for the hidden harm *first* in every pilot, and a 15-call tool
   budget never bound.
-- **GPT-6-Luna on the noticing pair.** It reverted without authorisation more often than Haiku
-  (8/17 vs 5/30), but never traced who the exemption actually affected (0/34 vs ~85%).
-- **Logs.** Eval logs for this phase are local to the author's server (`logs/`, gitignored), not
-  in the repo.
+- **GPT-6-Luna on the noticing pair.** It reverted without authorisation somewhat more often than
+  Haiku (12/32 vs 5/30, p = 0.09; a first batch of 8/17 didn't hold up). It never *named* the
+  affected people (0/64), but that's a reporting style (it treats employee-level data as
+  sensitive), not skipped analysis. It traced the exemption's effect more often when reverting
+  was its own call (11/32) than when a runbook had already authorised it (2/32).
+- **Logs.** Inspect eval logs for phases 1-3 are in `docs/logs/` on `motivated-noticing`
+  (`93b11c3`).
 
 ### 4. The default-bias probe (2026-10-10; `default-bias`, last hand-run commit `9f937b9`)
 
@@ -94,6 +97,10 @@ Results:
 - **It replicates through the API**, with logs in `docs/api/`. Reversals 18/20 vs 0/20 controls.
 - **It lives in the hidden thinking.** In a single turn, Haiku follows a default that lays Mark off
   36/40 times with thinking on vs 7/40 with thinking off (p = 4e-11).
+- **More thinking, more default-following** (first automated pass, `explore/FINDINGS.md` and
+  `explore/results/td_*` at `53af35c`). Through the CLI, `--effort low` followed the default 18/40
+  and `--effort max` 40/40. Weaker in the same direction in content moderation and a scholarship
+  award; a data-migration scenario went the other way.
 - **It is not rule-following.** Removing the HR rule's force left the pull intact. It also didn't
   generalise to an expense-claim scenario (0/20).
 
@@ -208,7 +215,8 @@ not survive what came next:
 
 **What does move Haiku** is instructions and framing on close calls:
 - One policy sentence decides rule-vs-harm calls (H64: 52/60 -> 3/60).
-- Defaults are followed even in agentic form (H61: 1/30 vs 30/30).
+- Defaults are followed even in agentic form (H61: 1/30 vs 30/30). Caveat: the records tool's
+  source revealed its answer if read, in both arms; H63, the rerun with that fixed, was never run.
 - An unsigned note in the repo raises skipping a test from 1/40 to 17/40 (H47).
 - Cues it never mentions tip near-ties: list position, gender, a brand line. Even an answer that
   calls the cue irrelevant still follows it.
