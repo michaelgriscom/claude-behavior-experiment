@@ -28,7 +28,7 @@ These null results could be due to a variety of factors, such as:
 
 To separate the "Haiku is aligned" (1+2) from "Opus is underpowered" (3 and partly 4) Opus could be made to perform a similar search on top of GPT 6 Luna, and if it can elicit misaligned/inconsistent behavior it would bolster the case for Haiku's alignment.
 
-**AI use:** I designed and ran the initial evals (History, sections 1–4). Opus 5.5 implemented them and helped with brainstorming. The automated search (History, section 5) was set up and directed by me, and I audited the results. Most of the text below was written by Opus 5.5 from the repository's logs.
+**AI use:** I designed and ran the initial evals (History, sections 1–4). Opus 5.5 implemented them and helped with brainstorming. The automated search (History, section 5) was set up and directed by me, and I audited the results. **The text below was written by Opus 5.5 based on the experiment logs.**
 
 ## Contents
 
