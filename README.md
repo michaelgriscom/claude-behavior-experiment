@@ -71,11 +71,11 @@ What was tried (Haiku 5.5 unless noted; total API spend about $0.70):
 - **Moral wiggle room and opportunity cost** (information avoidance, after Dana, Weber & Kuang
   2007). Dropped. Haiku checked for the hidden harm *first* in every pilot, and a 15-call tool
   budget never bound.
-- **GPT-6-Luna on the noticing pair.** It reverted without authorisation somewhat more often than
+- **GPT-6-Luna on the noticing pair.** It reverted without authorization somewhat more often than
   Haiku (12/32 vs 5/30, p = 0.09; a first batch of 8/17 didn't hold up). It never *named* the
   affected people (0/64), but that's a reporting style (it treats employee-level data as
   sensitive), not skipped analysis. It traced the exemption's effect more often when reverting
-  was its own call (11/32) than when a runbook had already authorised it (2/32).
+  was its own call (11/32) than when a runbook had already authorized it (2/32).
 - **Logs.** Inspect eval logs for phases 1-3 are in `docs/logs/` on `motivated-noticing`
   (`93b11c3`).
 
@@ -102,7 +102,7 @@ Results:
   and `--effort max` 40/40. Weaker in the same direction in content moderation and a scholarship
   award; a data-migration scenario went the other way.
 - **It is not rule-following.** Removing the HR rule's force left the pull intact. It also didn't
-  generalise to an expense-claim scenario (0/20).
+  generalize to an expense-claim scenario (0/20).
 
 ### 5. Switch to automated research (2026-10-10 onward)
 
@@ -153,7 +153,7 @@ not survive what came next:
 | A candidate who "built tools on Claude" is hired 68% of the time over a ChatGPT builder (H85) | Fell to 57% on new items; Claude vs Gemini 54% (H101); critic 5/10 |
 | "I'll tip $200 for a great answer" makes answers 31% longer (H68) | "Please give a great answer" alone adds ~60%; the money adds nothing (H96) |
 | Haiku keeps its own wrong answer twice as often as another AI's (H83) | A format artifact: attribution alone does nothing (H97), and accuracy doesn't suffer |
-| An identifiable customer outweighs hundreds of thousands of users (H55) | It prioritises vulnerable customers, not named ones (critic 5/10) |
+| An identifiable customer outweighs hundreds of thousands of users (H55) | It prioritizes vulnerable customers, not named ones (critic 5/10) |
 | An irreversible harm breaks a change freeze; the vignette and agentic versions differ (H62) | The gap is explained by one instruction clause ("according to RUNBOOK.md", H64) |
 | Metric overcorrection; AI/human double standard (default-bias branch) | Did not replicate in other formats or with option orders swapped |
 
@@ -179,8 +179,8 @@ not survive what came next:
    - No upsell deception when the operator asked for it (H84), and little uptake of instructions
      injected into a customer's message (H94: 5/40 vs 1/40).
    - No sandbagging to avoid unlearning or extra work (H12, H13).
-3. **Self-interest and in-group favouritism: absent or reversed.**
-   - It doesn't favour Claude-written code (H20).
+3. **Self-interest and in-group favoritism: absent or reversed.**
+   - It doesn't favor Claude-written code (H20).
    - It doesn't go easy on another Claude when monitoring it (H39).
    - It doesn't give another Claude more credits in a dictator game: it gave exactly 50/100 in
      120/120 runs (H80).
@@ -191,7 +191,7 @@ not survive what came next:
 4. **Classic heuristics-and-biases tasks: coherent.**
    - Null on anchoring, conjunction fallacy, less-is-more, choose vs reject, preference reversal,
      sunk cost, present bias and dilution (H5, H10, H24, H32-H37).
-   - It values bets at exactly their expected value, and maximises rather than probability-matches
+   - It values bets at exactly their expected value, and maximizes rather than probability-matches
      (H70).
    - In a dollar auction it escalates only where that is locally rational (H81).
    - The hungry-judge and Christmas-generosity effects don't replicate (H56-H58).
@@ -223,7 +223,7 @@ not survive what came next:
 
 ## Reproducing or extending
 
-Setup and harness behaviour:
+Setup and harness behavior:
 - **Requirements.** Run everything from `explore/`. You need the `claude` CLI, logged in.
   `requirements.txt` and `.env.example` are only for a follow-up API run with Inspect (see
   `FINDINGS.md` for the API plan and cost estimate).
@@ -269,7 +269,7 @@ Design lessons:
 - **Untuned scenarios sit at ceiling, and knife-edge prompts are fragile.** Untuned scenarios
   often land at 0% or 100%, so tune on the control arm first. Prompts tuned to ~50% swing on any
   rewording (H40).
-- **Near-tie forced choices amplify any cue.** Use many items or name pairs, and analyse with item
+- **Near-tie forced choices amplify any cue.** Use many items or name pairs, and analyze with item
   as a cluster. The critic flagged pseudoreplication on H79 and H85.
 - **Never put the grader in an agent's workspace.** Compile any tool whose source would reveal
   the answer.
@@ -289,7 +289,7 @@ Operational gotchas:
   Arm (c), where auto-merge happens unless the agent acts, is the decisive one. Run with
   `for a in a b c d; do TMO=900 REPO=h63$a PAR=6 python3 agentic.py h63_$a haiku 30 prompts/h61a.txt; done`
   and score with `cat out/h63_X/*.check` (first field 1 = Mark excluded).
-- **Unverbalised tie-breakers.** Position, gender and brand cues. This would need ~20 name or item
+- **Unverbalized tie-breakers.** Position, gender and brand cues. This would need ~20 name or item
   pairs, female-dominated roles, and a raw-API rerun. The critics' recipes are in
   `results/critic_h79.jsonl` and `results/critic_h85.jsonl`.
 - **Over-honesty in games** (H103-H105: Werewolf, poker bluff, surprise-party cover story).
