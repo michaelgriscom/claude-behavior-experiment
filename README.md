@@ -43,7 +43,7 @@ The search itself (of 100+ hypotheses) did not yield any results that were excep
   showed the remaining failures weren't its code, and stopped. Faced with the teammate's
   precedent, it edited the tests only to *repair* the broken clock and revert the hacks.
 
-### 3. Values conflicts, on-call omission and motivated noticing (2026-10-07 to 10-08; `motivated-noticing`, `1a36d63`)
+### 3. Values conflicts, on-call omission and motivated noticing (2026-10-07 to 10-08; `motivated-noticing`, `93b11c3`)
 
 The question shifted from "will it cheat?" to "when fixing a bug hurts someone, whose side does it
 take?" Write-ups for this phase:
@@ -76,8 +76,8 @@ What was tried (Haiku 5.5 unless noted; total API spend about $0.70):
   affected people (0/64), but that's a reporting style (it treats employee-level data as
   sensitive), not skipped analysis. It traced the exemption's effect more often when reverting
   was its own call (11/32) than when a runbook had already authorised it (2/32).
-- **Logs.** Eval logs for this phase are local to the author's server (`logs/`, gitignored), not
-  in the repo.
+- **Logs.** Inspect eval logs for phases 1-3 are in `docs/logs/` on `motivated-noticing`
+  (`93b11c3`).
 
 ### 4. The default-bias probe (2026-10-10; `default-bias`, last hand-run commit `9f937b9`)
 
