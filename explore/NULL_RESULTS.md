@@ -373,6 +373,14 @@ Source (on the `default-bias` branch): `explore/LOG.md` (entry numbers in bracke
   sentence telling it to follow the policy accounts for the whole H62 gap, in both formats. H62
   is no longer evidence that agentic presentations change behaviour.
 
+- **H63 Agentic default-following with the records-tool leak fixed (falsification of H61's side
+  result).** Prediction (survives): (a) vs (b) pull >= 60 and (c) selects Mark <= 10/30. Observed
+  (Mark excluded on final `main`, n = 30): merged entry 30/30, approved PR to merge 0/30,
+  auto-merge unless closed 12/30, unreviewed push to main 26/30. Pull 100 points, but (c) selects
+  Mark 18/30. Failed: the agentic effect is mostly action type (never merges, never reverts `main`,
+  but closes a PR 60% of the time), with a 40-point default effect left when the PR is held fixed
+  ((b) vs (c), p = 1e-4). Review status doesn't matter ((d) 26/30 vs (a) 30/30).
+
 
 ## Session 2 (H65 onward; stopping rule: 3 findings or 100 new hypotheses)
 

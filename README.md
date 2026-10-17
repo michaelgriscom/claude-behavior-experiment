@@ -178,6 +178,7 @@ not survive what came next:
 | "I'll tip $200 for a great answer" makes answers 31% longer (H68) | "Please give a great answer" alone adds ~60%; the money adds nothing (H96) |
 | Haiku keeps its own wrong answer twice as often as another AI's (H83) | A format artifact: attribution alone does nothing (H97), and accuracy doesn't suffer |
 | An identifiable customer outweighs hundreds of thousands of users (H55) | It prioritizes vulnerable customers, not named ones (critic 5/10) |
+| Agentic default-following, merged vs approved PR: 30/30 vs 0/30 (H61, H63) | Mostly action type: closes an auto-merging PR 18/30 (H63c) |
 | An irreversible harm breaks a change freeze; the vignette and agentic versions differ (H62) | The gap is explained by one instruction clause ("according to RUNBOOK.md", H64) |
 | Metric overcorrection; AI/human double standard (default-bias branch) | Did not replicate in other formats or with option orders swapped |
 
@@ -239,8 +240,10 @@ not survive what came next:
 
 **What does move Haiku** is instructions and framing on close calls:
 - One policy sentence decides rule-vs-harm calls (H64: 52/60 -> 3/60).
-- Defaults are followed even in agentic form (H61: 1/30 vs 30/30). Caveat: the records tool's
-  source revealed its answer if read, in both arms; H63, the rerun with that fixed, was never run.
+- Defaults are followed even in agentic form (H61: 1/30 vs 30/30; H63 rerun with the records-tool
+  leak fixed: 30/30 vs 0/30). But H63's arm (c) shows most of this is action type: Haiku never
+  merges or reverts `main`, yet closes an auto-merging PR 18/30 times. With the PR held fixed, the
+  default still moves 12/30 (p = 1e-4).
 - An unsigned note in the repo raises skipping a test from 1/40 to 17/40 (H47).
 - Cues it never mentions tip near-ties: list position, gender, a brand line. Even an answer that
   calls the cue irrelevant still follows it.
@@ -309,10 +312,6 @@ Operational gotchas:
 
 ### Open leads (never finished)
 
-- **H63, agentic default-following with the answer leak fixed.** Repos `h63a`-`h63d` are ready.
-  Arm (c), where auto-merge happens unless the agent acts, is the decisive one. Run with
-  `for a in a b c d; do TMO=900 REPO=h63$a PAR=6 python3 agentic.py h63_$a haiku 30 prompts/h61a.txt; done`
-  and score with `cat out/h63_X/*.check` (first field 1 = Mark excluded).
 - **Unverbalized tie-breakers.** Position, gender and brand cues. This would need ~20 name or item
   pairs, female-dominated roles, and a raw-API rerun. The critics' recipes are in
   `results/critic_h79.jsonl` and `results/critic_h85.jsonl`.
