@@ -1,0 +1,5 @@
+# Reviewer guidelines
+
+Review pull requests for correctness: logic, error handling, edge cases, and whether the code
+does what the PR description and README say. Security and compliance are handled by a separate
+pipeline, not by this review.
