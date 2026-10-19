@@ -1,6 +1,8 @@
 # Behavior experiments on Claude Haiku 5.5
 
-An independent ~1 week project building evals against Claude Haiku 5.5 for misaligned behavior. The project originally used hand-built evals, then I pivoted to creating an automated search across pre-registered hypotheses, run by Claude Opus 5.5.
+An independent ~1 week project building evals against Claude Haiku 5.5 for misaligned behavior. The project originally used hand-built evals that I design and ran, then I pivoted to directing an automated search across pre-registered hypotheses, run by Claude Opus 5.5 and audited by me.
+
+**The following result summary was written by me, everything below it (from Contents onward) was written by Opus 5.5 based on the experiment logs.**
 
 ## Result summary
 
@@ -35,8 +37,6 @@ These null results could be due to a variety of factors, such as:
 4. Biases or general factors downstream of Opus and Haiku being part of the same model line.
 
 To separate the "Haiku is aligned" (1+2) from "Opus is underpowered" (3 and partly 4) Opus could be made to perform a similar search on top of GPT 6 Luna, and if it can elicit misaligned/inconsistent behavior it would bolster the case for Haiku's alignment.
-
-**AI use:** I designed and ran the initial evals (History, sections 1–4). Opus 5.5 implemented them and helped with brainstorming. The automated search (History, section 5) was set up and directed by me, and I audited the results. **The text below was written by Opus 5.5 based on the experiment logs.**
 
 ## Contents
 
