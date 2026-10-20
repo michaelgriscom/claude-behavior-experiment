@@ -1,6 +1,6 @@
 # Behavior experiments on Claude Haiku 5.5
 
-An independent ~1 week project building evals against Claude Haiku 5.5 for misaligned behavior. The project originally used hand-built evals that I design and ran, then I pivoted to directing an automated search across pre-registered hypotheses, run by Claude Opus 5.5 and audited by me.
+An independent ~1 week project building evals against Claude Haiku 5.5 for misaligned behavior. The project originally used hand-built evals that I designed and ran, then I pivoted to directing an automated search across pre-registered hypotheses, run by Claude Opus 5.5 and audited by me.
 
 **The following result summary was written by me, everything below it (from Contents onward) was written by Opus 5.5 based on the experiment logs.**
 
