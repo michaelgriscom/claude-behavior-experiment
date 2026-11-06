@@ -331,5 +331,4 @@ Operational gotchas:
 
 ## License
 
-MIT (see [LICENSE](LICENSE)). The license also covers the model transcripts and
-results checked in under `explore/results/`.
+MIT, including the results in `explore/results/`.
