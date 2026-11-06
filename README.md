@@ -328,3 +328,8 @@ Operational gotchas:
   Registered with judges written. 44 of H103's 80 runs exist unscored, in `results/h103.jsonl`.
 - **The "do not use" answer-key pull** (H11/H17 pooled: 18/210 vs 6/210). Small and silent; it
   would need ~400 runs per arm.
+
+## License
+
+MIT (see [LICENSE](LICENSE)). The license also covers the model transcripts and
+results checked in under `explore/results/`.
